@@ -11,7 +11,7 @@ import { API_URL } from "../../const/apiConstants";
 
 function* handleLoadPlanetsSaga(): any {
     try {
-        const response = yield call(axios.get, API_URL.loadPeopleData);
+        const response = yield call(axios.get, API_URL.loadPlanets);
         yield put(loadPlanetsDataSuccess(response.data));
     } catch (error) {
         yield put(loadPlanetsDataError(error));

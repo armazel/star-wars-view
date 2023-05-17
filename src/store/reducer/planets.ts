@@ -5,9 +5,33 @@ import {
 } from "../actions";
 import { Action } from "../types";
 
-type StateType = {};
+export type StateType = {
+    name: string,
+    rotation_period: string,
+    orbital_period: string,
+    diameter: string,
+    climate: string,
+    gravity: string,
+    terrain: string,
+    surface_water: string,
+    population: string,
+    residents: string [],
+    films: string [],
+};
 
-const initialState: StateType = {};
+const initialState: StateType = {
+    name: "",
+    rotation_period: "",
+    orbital_period: "",
+    diameter: "",
+    climate: "",
+    gravity: "",
+    terrain: "",
+    surface_water: "",
+    population: "",
+    residents: [],
+    films: [],
+};
 
 export const planetsReducer = (state: StateType = initialState, action: Action): StateType => {
     switch (action.type) {

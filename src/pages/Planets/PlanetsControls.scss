@@ -1,0 +1,47 @@
+.PlanetsControls {
+    display: flex;
+    & .ant-col {
+        display: flex;
+        flex: 50%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .PlanetsControls {
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 32px;
+        & .ant-col {
+            flex: 100%;
+            justify-content: center;
+        }
+        & .ant-col:first-child {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .PlanetsControls {
+        flex-direction: column;
+        flex-wrap: wrap;
+        & .ant-col {
+            flex: 100%;
+            justify-content: center;
+        }
+        & .ant-col:first-child {
+            margin-bottom: 24px;
+        }
+    }
+}
+
+@media(max-width: 425px) {
+    .PlanetsControls {
+        & .ant-col {
+            margin: 20px 0;
+        }
+        & .ant-col:first-child {
+            margin-bottom: 12px;
+        }
+    }
+}

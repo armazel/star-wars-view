@@ -1,0 +1,31 @@
+@import "../../Global.scss";
+
+.CardList {
+    flex-wrap: wrap;
+    @include flex-center;
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    & .gutter-row {
+        margin: 32px 32px 32px 0;
+        display: flex;
+        justify-content: flex-start;
+    }
+    & .ant-card {
+        border: 1px solid $main-color !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .CardList {
+        & .gutter-row {
+            margin: 24px 0;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .CardList {
+        justify-content: center;
+    }
+}

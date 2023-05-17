@@ -1,0 +1,63 @@
+@import "Variables.scss";
+
+@mixin center-vertically {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+@mixin start-horizontally {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+@mixin start-vertically {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+@mixin main-color-borders {
+    border: 1px solid $main-color;
+}
+
+@mixin main-color-borders-bottom {
+    border-bottom: 1px solid $main-color;
+}
+
+@mixin main-color-borders-top {
+    border-top: 1px solid $main-color;
+}
+
+@mixin details-wrapper {
+    background: transparent;
+    @include main-color-borders;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 24px;
+    margin: 24px;
+    max-width: 1200px;
+}
+
+@mixin details-wrapper-submit {
+    border-radius: 0;
+    background: #2a2926;
+    @include main-color-borders;
+    cursor: pointer;
+    margin-top: 24px;
+}

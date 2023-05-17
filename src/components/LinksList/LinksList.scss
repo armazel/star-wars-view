@@ -1,0 +1,59 @@
+@import "../../Global.scss";
+
+.LinksList {
+    display: flex;
+    justify-content: flex-start;
+
+    & .link_item {
+        font-size: 32px;
+        padding: 32px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        border-right: 1px solid $main-color;
+    }
+
+    & .link_item:last-child {
+        border-right: none;
+    }
+}
+
+@media (max-width: 1500px) {
+    .LinksList {
+        & .link_item {
+            font-size: 24px;
+            padding: 24px;
+        } 
+    }
+}
+
+@media (max-width: 1024px) {
+    .LinksList {
+        display: flex;
+        flex-wrap: wrap;    
+    }  
+}
+
+@media (max-width: 768px) {
+    .LinksList {
+        display: flex;
+        & .link_item {
+            font-size: 16px;
+            padding: 16px;
+        }
+    }  
+}
+
+@media (max-width: 480px) {
+    .LinksList {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; 
+        & .link_item {
+            font-size: 16px;
+            padding: 16px;
+            border-right: none;
+            @include main-color-borders-bottom;
+        }
+    }  
+}

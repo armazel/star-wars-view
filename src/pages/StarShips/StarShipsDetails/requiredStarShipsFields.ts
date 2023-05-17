@@ -1,0 +1,15 @@
+export const requiredStarShipsFields:string[] = [
+    "MGLT",
+    "cargo_capacity",
+    "consumables",
+    "cost_in_credits",
+    "crew",
+    "hyperdrive_rating",
+    "length",
+    "manufacturer",
+    "max_atmosphering_speed",
+    "model",
+    "name",
+    "passengers",
+    "starship_class",
+];

@@ -1,0 +1,45 @@
+@import "../../Global.scss";
+
+.Details {
+    margin-top: 20px;
+    & .ant-card {
+        background: #2a2926;
+        margin: 24px;
+        max-width: 1200px;
+    }
+}
+
+.DetailsTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & .ant-typography {
+        margin: 0;
+    }
+    & .ant-btn {
+        margin: 0 !important;
+        @include details-wrapper-submit;
+    }
+}
+
+@media(max-width: 768px) {
+    .DetailsTitle {
+        & .ant-typography {
+            font-size: 24px;
+        }
+    }
+    
+}
+
+@media(max-width: 425px) {
+    .DetailsTitle {
+        display: flex;
+        align-items: center;
+        & .ant-typography {
+            font-size: 12px;
+            max-width: 130px;
+            @include ellipsis;
+        }
+    }
+    
+}

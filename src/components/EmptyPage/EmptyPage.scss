@@ -1,0 +1,12 @@
+@import "../../Global.scss";
+
+.EmptyPage {
+    @include flex-center;
+    & .not-found {
+        @include center-vertically;
+    }
+    & .description {
+        font-size: 24px;
+        @include center-vertically;
+    }
+}

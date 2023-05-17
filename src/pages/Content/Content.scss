@@ -1,0 +1,13 @@
+@import "../../Global.scss";
+
+.Content {
+    @include flex-center;
+    flex-direction: column;
+    margin: 0 50px;
+}
+
+@media (max-width: 768px) {
+    .Content {
+        margin: 0;
+    }
+}

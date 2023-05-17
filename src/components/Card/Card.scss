@@ -1,0 +1,11 @@
+@import "../../Global.scss";
+
+.Card {
+    & .ant-card-body {
+        background: black;
+        height: 85px;
+    }
+    & .ant-image-img {
+        border: 2px solid $main-color;
+    }
+}

@@ -1,0 +1,47 @@
+@import "../../Global.scss";
+
+.DetailsCard {
+    & .ant-card-body {
+        background: black;
+    }
+    & .ant-image-img {
+        border: 2px solid $main-color;
+    }
+
+    & .description {
+        margin-left: 24px;
+    }
+
+    & .wrapper {
+        @include start-horizontally;
+    }
+}
+
+.DetailsCard:hover,
+.DetailsCard {
+    @include main-color-borders;
+    & .ant-card-body {
+        @include main-color-borders-top;
+    }
+}
+
+@media (max-width: 768px) {
+    .DetailsCard {
+        & .wrapper {
+            @include start-vertically;
+        }
+
+        & .description {
+            margin-left: 0;
+            margin-top: 24px;
+        }
+
+        & .ant-image {
+            max-width: 250px;
+        }
+
+        & .ant-card-body {
+            padding: 8px;
+        }
+    }
+}

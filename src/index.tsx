@@ -1,18 +1,21 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
+
 import ReactDOM from "react-dom/client";
 import "./index.scss";
-import App from "./components/Layout/Layout";
-import reportWebVitals from "./reportWebVitals";
+import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
-
-reportWebVitals();
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>,
+    
+  );
+}

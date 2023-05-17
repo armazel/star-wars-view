@@ -1,0 +1,17 @@
+.BreadCrumbs {
+    margin-top: 24px;
+    margin-left: 24px;
+    & .ant-breadcrumb {
+        display: flex;
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 768px) {
+    .BreadCrumbs {
+        & .ant-breadcrumb {
+            font-size: 16px;
+        }
+    }
+}

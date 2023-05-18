@@ -3,34 +3,16 @@ import {
     GET_STAR_SHIPS_FETCH_SUCCESS,
     GET_STAR_SHIPS_FETCH_ERROR,
 } from "../actions";
-import { Action } from "../types";
+import { Action, StarShipsData } from "../types";
 
 type StateType = {
-    name: string,
-    model: string,
-    manufacturer: string,
-    cost_in_credits: string,
-    length: string,
-    max_atmosphering_speed: string,
-    crew: string,
-    passengers: string,
-    cargo_capacity: string,
-    hyperdrive_rating: string,
-    starship_class: string,
+    data: StarShipsData[],
+    count: number,
 };
 
 const initialState: StateType = {
-    name: "",
-    model: "",
-    manufacturer: "",
-    cost_in_credits: "",
-    length: "",
-    max_atmosphering_speed: "",
-    crew: "",
-    passengers: "",
-    cargo_capacity: "",
-    hyperdrive_rating: "",
-    starship_class: "",
+    data: [],
+    count: 0,
 };
 
 export const starShipsReducer = (state: StateType = initialState, action: Action): StateType => {
@@ -38,7 +20,10 @@ export const starShipsReducer = (state: StateType = initialState, action: Action
         case GET_STAR_SHIPS_FETCH_REQUEST: 
             return state;
         case GET_STAR_SHIPS_FETCH_SUCCESS: 
-            return state;
+            return {
+                ...state,
+                ...action.payload,
+            };
         case GET_STAR_SHIPS_FETCH_ERROR: 
             return state;
         default:

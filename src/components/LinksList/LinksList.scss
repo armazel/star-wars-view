@@ -3,8 +3,8 @@
     justify-content: flex-start;
 
     & .link_item {
-        font-size: 24px;
-        padding: 24px;
+        font-size: 32px;
+        padding: 32px;
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -13,6 +13,15 @@
 
     & .link_item:last-child {
         border-right: none;
+    }
+}
+
+@media (max-width: 1500px) {
+    .LinksList {
+        & .link_item {
+            font-size: 24px;
+            padding: 24px;
+        } 
     }
 }
 

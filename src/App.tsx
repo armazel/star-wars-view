@@ -1,27 +1,17 @@
-import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { loadPeopleData } from "./store/actions";
+import React from "react";
+
+import Header from "./components/Header/Header";
+import Spinner from "./components/Spinner/Spinner";
+import Content from "./pages/Content/Content";
 import Layout from "./pages/Layout/Layout";
-import Details from "./pages/Details/Details";
-import PeoplePage from "./pages/People/PeoplePage";
-import StarShipsPage from "./pages/StarShips/StarShipsPage";
-import PlanetsPage from "./pages/Planets/PlanetsPage";
 
 const App = () => {
-    const dispatch = useDispatch();
-    // const people = useSelector((state: any) => state.people.data);
-
-    useEffect(() => {
-        dispatch(loadPeopleData());
-    });
-
     return (
         <Layout>
-            <Routes>
-                <Route path="/" element={<Layout />} >
-                </Route>
-            </Routes>
+            <Header />
+            <Spinner>
+                <Content />
+            </Spinner>
         </Layout>
     );
 };

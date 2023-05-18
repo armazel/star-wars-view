@@ -3,34 +3,16 @@ import {
     GET_PLANETS_FETCH_SUCCESS,
     GET_PLANETS_FETCH_ERROR,
 } from "../actions";
-import { Action } from "../types";
+import { Action, PlanetsData } from "../types";
 
-export type StateType = {
-    name: string,
-    rotation_period: string,
-    orbital_period: string,
-    diameter: string,
-    climate: string,
-    gravity: string,
-    terrain: string,
-    surface_water: string,
-    population: string,
-    residents: string [],
-    films: string [],
+type StateType = {
+    data: PlanetsData[],
+    count: number,
 };
 
 const initialState: StateType = {
-    name: "",
-    rotation_period: "",
-    orbital_period: "",
-    diameter: "",
-    climate: "",
-    gravity: "",
-    terrain: "",
-    surface_water: "",
-    population: "",
-    residents: [],
-    films: [],
+    data: [],
+    count: 0,
 };
 
 export const planetsReducer = (state: StateType = initialState, action: Action): StateType => {
@@ -38,7 +20,10 @@ export const planetsReducer = (state: StateType = initialState, action: Action):
         case GET_PLANETS_FETCH_REQUEST: 
             return state;
         case GET_PLANETS_FETCH_SUCCESS: 
-            return state;
+            return {
+                ...state,
+                ...action.payload,
+            };
         case GET_PLANETS_FETCH_ERROR: 
             return state;
         default:

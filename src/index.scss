@@ -12,9 +12,14 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./images/layout_background.jpeg');
+  background-image: url('../public/layout_background.jpeg');
   background-size: cover;
   background-position: center center;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
 }
 
 .ant-layout {

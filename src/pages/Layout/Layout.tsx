@@ -1,19 +1,20 @@
 import React from "react";
-import { Layout, Divider } from "antd";
-
-import Content from "../Content/Content";
-import Header from "../../components/Header/Header";
+import { Layout } from "antd";
 
 import "./Layout.scss";
 
 const componentName: string = "Layout";
 
-const LayoutPage: React.FC = () => {
+type LayoutPageParams = {
+    children: React.ReactNode;
+};
+
+const LayoutPage: React.FC<LayoutPageParams> = ({
+    children,
+}) => {
     return (
         <Layout className={componentName}>
-            <Header />
-            <Divider />
-            <Content />
+            {children}
         </Layout>
     );
 };

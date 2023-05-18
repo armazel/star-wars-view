@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import LinksList from "../LinksList/LinksList";
 
 const componentName = "NavigationPanel";

@@ -6,6 +6,7 @@ import {
   peopleReducer,
   planetsReducer,
   starShipsReducer,
+  loadingReducer,
 } from "./reducer";
 import rootSaga from "./saga";
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   planets: planetsReducer,
   people: peopleReducer,
   starShips: starShipsReducer,
+  loading: loadingReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

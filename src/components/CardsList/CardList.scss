@@ -1,0 +1,22 @@
+.CardList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 50px;
+    justify-content: center;
+    & .gutter-row {
+        margin: 24px;
+        display: flex;
+        justify-content: center;
+    }
+    & .ant-card {
+        border: 1px solid #fcdf2a !important;
+    }
+}
+
+@media (max-width: 425px) {
+    .CardList {
+        & .gutter-row {
+            margin: 24px 0;
+        }
+    }
+}

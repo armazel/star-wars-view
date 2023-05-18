@@ -1,6 +1,7 @@
 import React from "react";
 import { Image } from "antd";
 import { Col, Row } from "antd";
+import { Link } from "react-router-dom";
 
 import { Layout } from "antd";
 import NavigationPanel from "../NavigationPanel/NavigationPanel";
@@ -14,14 +15,16 @@ const Header: React.FC = () => {
         <Layout.Header className={componentName}>
             <Row align={"middle"}>
                 <Col md={24} lg={8}>
-                    <div className={"logo_wrapper"}>
-                        <Image 
-                            src="logo.png"
-                            preview={false}
-                            width={400}
-                            height="auto"
-                        />
-                    </div>
+                    <Link to={"/"}>
+                        <div className={"logo_wrapper"}>
+                            <Image 
+                                src="logo.png"
+                                preview={false}
+                                width={400}
+                                height="auto"
+                            />
+                        </div>
+                    </Link>
                 </Col>
                 <Col md={24} lg={16}>
                     <NavigationPanel />

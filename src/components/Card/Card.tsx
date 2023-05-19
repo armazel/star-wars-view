@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Card as CardComponent } from "antd";
+import React from "react";
+import { Card as CardComponent, Image } from "antd";
 import { CardData } from "../../store/types";
 
 import "./Card.scss";
@@ -20,19 +20,20 @@ const Card: React.FC<CardParams> = ({
     imgWidth,
 }) => {
 
-    const [imageError, setImageError] = useState(false);
-
-    const handleImageError = () => {
-        setImageError(true);
-    };
-
     return (
         <CardComponent
             style={{ width: imgWidth }}
             className={componentName}
             hoverable
-            cover={<img height={imgHeight} alt="example" src={imageError ? "/default_card.png" : imgSrc} />}
-            onError={handleImageError}
+            cover={
+                <Image
+                    height={imgHeight}
+                    preview={false}
+                    alt="example"
+                    src={imgSrc}
+                    fallback={"/default_card.png"}
+                />
+            }
         >
             <span>{cardInfo?.name}</span>
         </CardComponent>
@@ -41,7 +42,7 @@ const Card: React.FC<CardParams> = ({
 
 Card.defaultProps = {
     imgSrc: "",
-    imgHeight: 350,
+    imgHeight: 300,
     imgWidth: 300,
 };
 

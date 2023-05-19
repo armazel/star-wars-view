@@ -34,5 +34,24 @@
             display: flex;
             justify-content: flex-start;
         }
+        & .ant-image-img {
+            width: 400px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Header {
+        & .ant-image-img {
+            width: 300px;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .Header {
+        & .ant-image-img {
+            width: 200px;
+        }
     }
 }

@@ -11,7 +11,9 @@ const StarShipsPage: React.FC = () => {
 
     useEffect(() => {
         if(!starShips.length) {
-            dispatch(loadStarShipsData("1"));
+            dispatch(loadStarShipsData({
+                page: 1,
+            }));
         }
     }, []);
 

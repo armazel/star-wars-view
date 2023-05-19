@@ -1,16 +1,15 @@
 import React, { ChangeEvent } from "react";
-import { Input } from "antd";
-import { AnyAction } from "redux";
+import { Col, Input } from "antd";
 import debounce from "lodash/debounce";
-import { useDispatch } from "react-redux";
 
-import { ApiParams } from "../../const/apiConstants";
+import { LoadCardParams } from "../../store/types";
 
 import "./Search.scss";
 
+
 type SearchParams = {
     cardType: string,
-    onLoad: (param: ApiParams) => AnyAction;
+    onLoad: (param: LoadCardParams) => void;
 };
 
 const componentName: string = "Search";
@@ -20,23 +19,24 @@ const Search: React.FC<SearchParams> = ({
     onLoad,
 }) => {
     const debounceTimeout = 1500;
-    const dispatch = useDispatch();
 
     const loadData = (e: ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
-        dispatch(
-            onLoad({ search: inputValue })
-        );
+        if(inputValue) {
+            onLoad({ search: inputValue });
+        }
     };
 
     const onChange = debounce(loadData, debounceTimeout);
 
     return (
-        <Input.Search
-            className={componentName}
-            onChange={onChange}
-            placeholder={`Please, enter name of ${cardType}`}
-        />
+        <Col >
+            <Input.Search
+                    className={componentName}
+                    onChange={onChange}
+                    placeholder={`Please, enter name of ${cardType}`}
+                />                      
+            </Col>
     );
 };
 

@@ -1,6 +1,6 @@
 import { createAction } from "redux-actions";
 
-import { ApiParams } from "../../const/apiConstants";
+import { LoadCardParams } from "../types";
 
 export const GET_PLANETS_FETCH_REQUEST
     = "planets/load/FETCH_REQUEST";
@@ -11,7 +11,7 @@ export const GET_PLANETS_FETCH_ERROR
 
 export const loadPlanetsData = createAction(
     GET_PLANETS_FETCH_REQUEST,
-    (params: ApiParams) => (params)
+    (params: LoadCardParams) => (params)
 );
 export const loadPlanetsDataSuccess = createAction(GET_PLANETS_FETCH_SUCCESS);
 export const loadPlanetsDataError = createAction(GET_PLANETS_FETCH_ERROR);

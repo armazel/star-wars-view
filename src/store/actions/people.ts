@@ -1,6 +1,6 @@
 import { createAction } from "redux-actions";
 
-import { ApiParams } from "../../const/apiConstants";
+import { LoadCardParams } from "../types";
 
 export const GET_PEOPLE_FETCH_REQUEST
     = "people/load/FETCH_REQUEST";
@@ -11,7 +11,7 @@ export const GET_PEOPLE_FETCH_ERROR
 
 export const loadPeopleData = createAction(
     GET_PEOPLE_FETCH_REQUEST,
-    (params: ApiParams) => (params)
+    (params: LoadCardParams) => (params)
 );
 
 export const loadPeopleDataSuccess = createAction(GET_PEOPLE_FETCH_SUCCESS);

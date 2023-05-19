@@ -1,4 +1,5 @@
 .Search {
+    max-width: 600px;
     & .ant-input {
         background: transparent;
         border: 2px solid #fcdf2a;
@@ -18,5 +19,17 @@
     & .ant-input:hover,
     & .ant-input:target {
         border: 2px solid yellow !important;
+    }
+}
+
+@media(max-width: 1024px) {
+    .Search {
+        max-width: 100%;
+        & .ant-input {
+            padding: 6px;
+        }
+        & .ant-input::placeholder {
+            font-size: 12px;
+        }
     }
 }

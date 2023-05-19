@@ -1,19 +1,16 @@
+import { LoadCardParams } from "../store/types";
 import { addQuery } from "../utils/helpers";
 
 const rootUrl: string = "https://swapi.py4e.com/api";
 
-export interface ApiParams {
-    [key: string]: string
-}
-
 export const API_URL = {
     getPeopleData: (
-        params: ApiParams
+        params: LoadCardParams
     ) => `${rootUrl}/people/${addQuery(params)}`,
     getPlanets: (
-        params: ApiParams
+        params: LoadCardParams
     ) => `${rootUrl}/planets/${addQuery(params)}`,
     getStarShips: (
-        params: ApiParams
+        params: LoadCardParams
     ) => `${rootUrl}/starships/${addQuery(params)}`,
 };

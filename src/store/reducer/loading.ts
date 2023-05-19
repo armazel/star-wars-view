@@ -5,6 +5,9 @@ import {
     GET_PLANETS_FETCH_SUCCESS,
     GET_STAR_SHIPS_FETCH_REQUEST,
     GET_STAR_SHIPS_FETCH_SUCCESS,
+    GET_PEOPLE_FETCH_ERROR,
+    GET_PLANETS_FETCH_ERROR,
+    GET_STAR_SHIPS_FETCH_ERROR,
 } from "../actions";
 import { Action } from "../types";
 
@@ -28,6 +31,9 @@ export const loadingReducer = (state: StateType = initialState, action: Action):
         case GET_PEOPLE_FETCH_SUCCESS:
         case GET_PLANETS_FETCH_SUCCESS:
         case GET_STAR_SHIPS_FETCH_SUCCESS:
+        case GET_PEOPLE_FETCH_ERROR:
+        case GET_PLANETS_FETCH_ERROR:
+        case GET_STAR_SHIPS_FETCH_ERROR:
             return {
                 ...state,
                 isLoading: false,

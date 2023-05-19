@@ -26,8 +26,9 @@ body {
   background-color: transparent !important;
 }
 
-.ant-input:not(:focus)::placeholder,
-.ant-input {
+.ant-input::placeholder,
+.ant-input,
+.ant-pagination-item {
   font-family: 'Star Wars', sans-serif;
   color: #fcdf2a !important;
 }

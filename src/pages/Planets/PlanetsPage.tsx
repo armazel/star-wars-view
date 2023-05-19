@@ -12,7 +12,9 @@ const PlanetsPage: React.FC = () => {
 
     useEffect(() => {
         if(!planets.length) {
-            dispatch(loadPlanetsData("1"));
+            dispatch(loadPlanetsData({
+                page: 1,
+            }));
         }
     }, []);
 

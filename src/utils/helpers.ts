@@ -9,3 +9,19 @@ export const updateData = (data: CardsData) => data.map((item) => ({
     id: getIdFromUrl(item.url),
     cardType: getIdFromCardType(item.url),
 }));
+
+export const addQuery = (queries: { [key: string]: string }) => {
+    if (!queries) return "";
+
+    const queriesList: string[] = Object.keys(queries);
+
+    let queriesLine = "";
+
+    queriesList.map((item: string, id: number) => 
+        queriesLine += id === 0 
+            ? `?${item}=${queries[item]}`
+            : `&${item}=${queries[item]}`
+        );
+    
+    return queriesLine;
+};

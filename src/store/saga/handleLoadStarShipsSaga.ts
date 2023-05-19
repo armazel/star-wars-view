@@ -10,21 +10,14 @@ import {
 import { API_URL } from "../../const/apiConstants";
 import { SagaIterator } from "redux-saga";
 import { updateData } from "../../utils/helpers";
+import { HandleLoadSagaParams } from "../types";
 
-type handleLoadStarShipsSagaParams = {
-    payload: {
-        currentPage: string,
-    },
-    type: string,
-};
 
 function* handleLoadStarShipsSaga({
-    payload: {
-        currentPage,
-    }
-}: handleLoadStarShipsSagaParams): SagaIterator {
+    payload
+}: HandleLoadSagaParams): SagaIterator {
     try {
-        const response = yield call(axios.get, API_URL.getStarShips(currentPage));
+        const response = yield call(axios.get, API_URL.getStarShips(payload));
         yield put(loadStarShipsDataSuccess({
             data: updateData(response.data.results),
             count: response.data.count,

@@ -9,24 +9,13 @@ import {
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
-import { PeopleResponse } from "../types";
+import { HandleLoadSagaParams, PeopleResponse } from "../types";
 import { updateData } from "../../utils/helpers";
 
-type handleLoadPeopleSagaParams = {
-  payload: {
-    currentPage: string,
-  },
-  type: string,
-};
-
-function* handleLoadPeopleSaga({
-  payload: {
-    currentPage,
-  }
-}: handleLoadPeopleSagaParams): SagaIterator {
+function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
   try {
-    const response: PeopleResponse = yield call(axios.get, API_URL.getPeopleData(currentPage));
+    const response: PeopleResponse = yield call(axios.get, API_URL.getPeopleData(payload));
 
     yield put(loadPeopleDataSuccess({
       data: updateData(response.data.results),

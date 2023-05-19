@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import { CardsData } from "../../store/types";
 import { entities } from "../../const/entities";
+import { getItemImage } from "../../utils/helpers";
 
 import "./CardList.scss";
 
@@ -21,9 +22,13 @@ const CardList: React.FC<CardListParams> = ({
 }) => (
     <div className={componentName}>
         {info.map((item, id: number) => (
-                <Col className="gutter-row" xl={4} lg={12} md={24} xs={24} key={`${item.name}_${id}`} >
+                <Col className="gutter-row" key={`${item.name}_${id}`} >
                     <Link to={`/${item.cardType}/${item.id}`} >
-                        <Card cardInfo={item} key={item.name} entity={entity} />
+                        <Card 
+                            cardInfo={item}
+                            key={item.name}
+                            imgSrc={`${getItemImage(entity, item.id)}`}
+                        />
                     </Link>
                 </Col>
         ))}

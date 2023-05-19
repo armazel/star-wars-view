@@ -26,6 +26,12 @@ body {
   background-color: transparent !important;
 }
 
+.ant-input:not(:focus)::placeholder,
+.ant-input {
+  font-family: 'Star Wars', sans-serif;
+  color: #fcdf2a !important;
+}
+
 .ant-layout-content,
 .ant-layout-header {
   background-color: transparent !important;

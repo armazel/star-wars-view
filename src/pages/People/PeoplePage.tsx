@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import CardList from "../../components/CardsList/CardList";
+import Search from "../../components/Search/Search";
+import { ApiParams } from "../../const/apiConstants";
 import { entities } from "../../const/entities";
 
 import { loadPeopleData } from "../../store/actions";
@@ -13,13 +16,15 @@ const PeoplePage: React.FC = () => {
 
     useEffect(() => {
         if(!people.length) {
-            dispatch(loadPeopleData("1"));
+            dispatch(loadPeopleData({
+                page: "1",
+            }));
         }
     }, []);
 
-    return (
-        <CardList info={people} entity={entities.PEOPLE} />
-    );
+    const onSearchLoad = (params: ApiParams) => dispatch(loadPeopleData(params));
+
+    return <CardList info={people} entity={entities.PEOPLE} />;
 };
 
 export default PeoplePage;

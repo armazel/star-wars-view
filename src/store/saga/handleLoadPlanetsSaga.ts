@@ -10,21 +10,13 @@ import {
 
 import { API_URL } from "../../const/apiConstants";
 import { updateData } from "../../utils/helpers";
-
-type handleLoadPlanetsSagaParams = {
-    payload: {
-        currentPage: string,
-    },
-    type: string,
-};
+import { HandleLoadSagaParams } from "../types";
 
 function* handleLoadPlanetsSaga({
-    payload: {
-        currentPage,
-    }
-}: handleLoadPlanetsSagaParams): SagaIterator {
+    payload
+}: HandleLoadSagaParams): SagaIterator {
     try {
-        const response = yield call(axios.get, API_URL.getPlanets(currentPage));
+        const response = yield call(axios.get, API_URL.getPlanets(payload));
 
         yield put(loadPlanetsDataSuccess({
             data: updateData(response.data.results),

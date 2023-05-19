@@ -1,12 +1,11 @@
 .CardList {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 50px;
-    justify-content: center;
+    justify-content: flex-start;
     & .gutter-row {
         margin: 24px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     }
     & .ant-card {
         border: 1px solid #fcdf2a !important;
@@ -18,5 +17,11 @@
         & .gutter-row {
             margin: 24px 0;
         }
+    }
+}
+
+@media (max-width: 1024px) {
+    .CardList {
+        justify-content: center;
     }
 }

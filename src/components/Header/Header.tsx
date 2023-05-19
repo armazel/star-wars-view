@@ -20,7 +20,6 @@ const Header: React.FC = () => {
                             <Image 
                                 src="logo.png"
                                 preview={false}
-                                width={400}
                                 height="auto"
                             />
                         </div>

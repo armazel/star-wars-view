@@ -11,6 +11,8 @@ export const getPlanetsItemId = (state: RootState, props: {id: string | null | u
 
 export const getPlanetDetailsItem = (state: RootState): PlanetsData => state.planets?.detailItem;
 
+export const getPlanetsSearchData = (state: RootState): string => state.planets?.searchText;
+
 export const getPlanetsItemById = createSelector(
     getPlanets,
     getPlanetDetailsItem,

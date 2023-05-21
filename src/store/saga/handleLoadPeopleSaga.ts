@@ -23,6 +23,7 @@ function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator 
     yield put(loadPeopleDataSuccess({
       data: updateData(response.data.results),
       count: response.data.count,
+      searchText: payload?.search,
     }));
   } catch (error) {
     yield put(loadPeopleDataError(error));

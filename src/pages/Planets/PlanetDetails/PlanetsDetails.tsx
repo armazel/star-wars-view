@@ -35,7 +35,7 @@ const PlanetsDetails: React.FC = () => {
                 <BreadCrumbs />
                 <Details 
                     data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
-                    entity={entities.PEOPLE}
+                    entity={entities.PLANETS}
                     id={data.id as string}
                 />
             </>

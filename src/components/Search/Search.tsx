@@ -10,6 +10,7 @@ import "./Search.scss";
 type SearchParams = {
     cardType: string,
     onLoad: (param: LoadCardParams) => void;
+    searchData: string,
 };
 
 const componentName: string = "Search";
@@ -17,14 +18,14 @@ const componentName: string = "Search";
 const Search: React.FC<SearchParams> = ({
     cardType,
     onLoad,
+    searchData = "",
 }) => {
     const debounceTimeout = 1500;
 
     const loadData = (e: ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
-        if(inputValue) {
-            onLoad({ search: inputValue });
-        }
+
+        onLoad({ search: inputValue });
     };
 
     const onChange = debounce(loadData, debounceTimeout);
@@ -35,6 +36,7 @@ const Search: React.FC<SearchParams> = ({
                     className={componentName}
                     onChange={onChange}
                     placeholder={`Please, enter name of ${cardType}`}
+                    defaultValue={searchData}
                 />                      
             </Col>
     );

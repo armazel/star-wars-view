@@ -11,6 +11,8 @@ export const getPeopleItemId = (state: RootState, props: {id: string | null | un
 
 export const getPeopleDetailsItem = (state: RootState): PeopleData => state.people?.detailItem;
 
+export const getPeopleSearchData = (state: RootState): string => state.people?.searchText;
+
 export const getPeopleItemById = createSelector(
     getPeople,
     getPeopleDetailsItem,

@@ -11,12 +11,14 @@ type StateType = {
     data: PlanetsData[],
     count: number,
     detailItem: PlanetsData,
+    searchText: string,
 };
 
 const initialState: StateType = {
     data: [],
     count: 0,
     detailItem: {} as PlanetsData,
+    searchText: "",
 };
 
 export const planetsReducer = (state: StateType = initialState, action: Action): StateType => {

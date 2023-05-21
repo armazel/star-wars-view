@@ -24,6 +24,7 @@ function* handleLoadPlanetsSaga({
         yield put(loadPlanetsDataSuccess({
             data: updateData(response.data.results),
             count: response.data.count,
+            searchText: payload?.search,
         }));
     } catch (error) {
         yield put(loadPlanetsDataError(error));

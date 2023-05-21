@@ -24,6 +24,7 @@ function* handleLoadStarShipsSaga({
         yield put(loadStarShipsDataSuccess({
             data: updateData(response.data.results),
             count: response.data.count,
+            searchText: payload?.search,
         }));
     } catch (error) {
         yield put(loadStarShipsDataError(error));

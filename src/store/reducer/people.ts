@@ -11,12 +11,14 @@ type StateType = {
     data: PeopleData[],
     count: number,
     detailItem: PeopleData,
+    searchText: string,
 };
 
 const initialState: StateType = {
     data: [],
     count: 0,
     detailItem: {} as PeopleData,
+    searchText: "",
 };
 
 export const peopleReducer = (state: StateType = initialState, action: Action): StateType => {

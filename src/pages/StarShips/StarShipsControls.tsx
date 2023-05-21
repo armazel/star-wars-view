@@ -5,7 +5,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import Search from "../../components/Search/Search";
 import { cardTypes } from "../../const/cardType";
 import { loadStarShipsData } from "../../store/actions";
-import { getStarShipsTotalItems } from "../../store/selectors";
+import { getStarShipsSearchData, getStarShipsTotalItems } from "../../store/selectors";
 import { LoadCardParams } from "../../store/types";
 
 import "./StartShipsControls.scss";
@@ -14,13 +14,19 @@ const componentName: string = "StarShipsControls";
 
 const StarShipsControls = () => {
     const total: number = useSelector(getStarShipsTotalItems);
+    const searchData = useSelector(getStarShipsSearchData);
+
     const dispatch = useDispatch();
 
     const onLoad = (params: LoadCardParams) => dispatch(loadStarShipsData(params));
 
     return (
         <div className={componentName} >
-            <Search onLoad={onLoad} cardType={cardTypes.STAR_SHIPS} />
+            <Search
+                onLoad={onLoad} 
+                cardType={cardTypes.STAR_SHIPS}
+                searchData={searchData}
+            />
             <Pagination onLoad={onLoad} total={total} />
         </div>
     );

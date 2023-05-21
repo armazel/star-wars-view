@@ -11,6 +11,8 @@ export const getStarShipsItemId = (state: RootState, props: {id: string | null |
 
 export const getStarShipDetailsItem = (state: RootState): StarShipsData => state.starShips?.detailItem;
 
+export const getStarShipsSearchData = (state: RootState): string => state.starShips?.searchText;
+
 export const getStarShipsItemById = createSelector(
     getStarShips,
     getStarShipDetailsItem,

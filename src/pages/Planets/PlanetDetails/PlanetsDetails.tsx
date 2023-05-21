@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 import Details from "../../../components/Details/Details";
 import EmptyPage from "../../../components/EmptyPage/EmptyPage";
 import { entities } from "../../../const/entities";
-import { routesList } from "../../../const/routesList";
 import { loadPlanetItemById } from "../../../store/actions";
 import { getPlanetsItemById } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
@@ -25,17 +25,20 @@ const PlanetsDetails: React.FC = () => {
         requiredFields: requredPlanetsFields,
     };
 
-    const match = useMatch(routesList.PLANETS_DETAILS);
-    const id = match && match.params?.id;
+    const { id } = useParams();
+
     const data = useSelector((state: RootState) => getPlanetsItemById(state, { id }));
 
     return data 
         ? (
-            <Details 
-                data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
-                entity={entities.PLANETS}
-                id={data?.id as string}
-            />
+            <>
+                <BreadCrumbs />
+                <Details 
+                    data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
+                    entity={entities.PEOPLE}
+                    id={data.id as string}
+                />
+            </>
         ) : (<EmptyPage />);
 };
 

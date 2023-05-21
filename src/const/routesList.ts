@@ -1,5 +1,6 @@
 export const routesList: {[key: string]: string} = {
-    PEOPLE: "/",
+    DEFAULT: "/",
+    PEOPLE: "/people",
     PLANETS: "/planets",
     STAR_SHIPS: "/starships",
     PEOPLE_DETAILS: "/people/:id",

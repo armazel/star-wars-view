@@ -19,20 +19,22 @@ import { routesList } from "../../const/routesList";
 const componentName = "Content";
 
 const Content: React.FC = () => {
+    const DefaultView = () => (
+        <>
+            <PeopleControls />
+            <Row>
+                <PeoplePage />
+            </Row>
+        </>
+    );
     return (
         <Layout.Content>
             <Layout.Content className={componentName}>
             <Row>
                     <Col span={24}>
                         <Routes>
-                            <Route path={routesList.PEOPLE} element={
-                                <>
-                                    <PeopleControls />
-                                    <Row>
-                                        <PeoplePage />
-                                    </Row>
-                                </>
-                            } />
+                            <Route path={routesList.DEFAULT} element={<DefaultView />} />
+                            <Route path={routesList.PEOPLE} element={<DefaultView />} />
                             <Route path={routesList.STAR_SHIPS} element={
                                 <>
                                     <StarShipsControls />

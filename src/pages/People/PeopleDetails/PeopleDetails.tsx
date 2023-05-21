@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 import Details from "../../../components/Details/Details";
 import EmptyPage from "../../../components/EmptyPage/EmptyPage";
 import { entities } from "../../../const/entities";
-import { routesList } from "../../../const/routesList";
 import { loadPeopleItemById } from "../../../store/actions";
 import { getPeopleItemById } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
@@ -17,8 +17,8 @@ const PeopleDetails: React.FC = () => {
 
     const dispatch = useDispatch();
 
-    const match = useMatch(routesList.PEOPLE_DETAILS);
-    const id = match && match.params?.id as string;
+    const { id } = useParams();
+
     const data = useSelector((state: RootState) => getPeopleItemById(state, { id }));
 
     useEffect(() => {
@@ -31,11 +31,14 @@ const PeopleDetails: React.FC = () => {
 
     return data 
         ? (
-            <Details 
-                data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
-                entity={entities.PEOPLE}
-                id={data.id as string}
-            />
+            <>
+                <BreadCrumbs />
+                <Details 
+                    data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
+                    entity={entities.PEOPLE}
+                    id={data.id as string}
+                />
+            </>
         ) : (<EmptyPage />);
 };
 

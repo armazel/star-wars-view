@@ -41,3 +41,4 @@ export const starShipsReducer = (state: StateType = initialState, action: Action
         return state;
     }
 };
+

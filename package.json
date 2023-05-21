@@ -2,9 +2,12 @@
   "name": "star_wars_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://armazel.github.io/star-wars-view/",
   "dependencies": {
     "@redux-saga/types": "1.2.1",
     "@reduxjs/toolkit": "1.9.5",
+    "@rjsf/antd": "^5.7.2",
+    "@rjsf/core": "^5.7.2",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "13.5.0",
@@ -38,7 +41,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint src/**/*.{ts,tsx}"
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

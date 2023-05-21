@@ -13,6 +13,7 @@ import PeopleDetails from "../People/PeopleDetails/PeopleDetails";
 import "./Content.scss";
 import PlanetsDetails from "../Planets/PlanetDetails/PlanetsDetails";
 import StarShipsDetails from "../StarShips/StarShipsDetails/StarShipsDetails";
+import { routesList } from "../../const/routesList";
 
 
 const componentName = "Content";
@@ -24,7 +25,7 @@ const Content: React.FC = () => {
             <Row>
                     <Col span={24}>
                         <Routes>
-                            <Route path="/" element={
+                            <Route path={routesList.PEOPLE} element={
                                 <>
                                     <PeopleControls />
                                     <Row>
@@ -32,7 +33,7 @@ const Content: React.FC = () => {
                                     </Row>
                                 </>
                             } />
-                            <Route path="/starships" element={
+                            <Route path={routesList.STAR_SHIPS} element={
                                 <>
                                     <StarShipsControls />
                                     <Col span={24}>
@@ -40,7 +41,7 @@ const Content: React.FC = () => {
                                     </Col>
                                 </>
                             } />
-                            <Route path="/planets" element={
+                            <Route path={routesList.PLANETS} element={
                                 <>
                                     <PlanetsControls />
                                     <Col span={24}>
@@ -53,9 +54,9 @@ const Content: React.FC = () => {
                 </Row>
             </Layout.Content>
             <Routes>
-                <Route path="/people/:id" element={<PeopleDetails />} />
-                <Route path="/starships/:id" element={<StarShipsDetails />} />
-                <Route path="/planets/:id" element={<PlanetsDetails />} />
+                <Route path={routesList.PEOPLE_DETAILS} element={<PeopleDetails />} />
+                <Route path={routesList.STAR_SHIPS_DETAILS} element={<StarShipsDetails />} />
+                <Route path={routesList.PLANETS_DETAILS} element={<PlanetsDetails />} />
             </Routes>
         </Layout.Content>
     );

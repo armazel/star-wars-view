@@ -9,8 +9,13 @@ export const getPlanetsTotalItems = (state: RootState): number => state.planets.
 
 export const getPlanetsItemId = (state: RootState, props: {id: string | null | undefined}) => props.id;
 
+export const getPlanetDetailsItem = (state: RootState): PlanetsData => state.planets?.detailItem;
+
 export const getPlanetsItemById = createSelector(
     getPlanets,
+    getPlanetDetailsItem,
     getPlanetsItemId,
-    (data, id) => data.find(dataItem => dataItem.id === id)
+    (data, detailsItem, id) => data.length
+        ? data.find(dataItem => dataItem.id === id)
+        : detailsItem,
 );

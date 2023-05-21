@@ -19,3 +19,7 @@ export interface PlanetsResponse {
         results: PlanetsData[],
     }
 }
+export interface PlanetsItemResponse {
+    data: PlanetsData,
+}
+

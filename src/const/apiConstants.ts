@@ -14,4 +14,6 @@ export const API_URL = {
         params: LoadCardParams
     ) => `${rootUrl}/starships/${addQuery(params as {[ key: string]: string })}`,
     getPeopleItemById: (id: number) => `${rootUrl}/people/${id}/`,
+    getPlanetItemById: (id: number) => `${rootUrl}/planets/${id}/`,
+    getStarShipItemById: (id: number) => `${rootUrl}/starships/${id}/`,
 };

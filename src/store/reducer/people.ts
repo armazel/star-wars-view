@@ -3,6 +3,7 @@ import {
     GET_PEOPLE_FETCH_SUCCESS,
     GET_PEOPLE_FETCH_ERROR,
     GET_PEOPLE_ITEM_BY_ID_FETCH_SUCCESS,
+    GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST,
 } from "../actions";
 import { PeopleData, Action } from "../types";
 
@@ -21,7 +22,7 @@ const initialState: StateType = {
 export const peopleReducer = (state: StateType = initialState, action: Action): StateType => {
     switch (action.type) {
         case GET_PEOPLE_FETCH_REQUEST: 
-            return state;
+            return initialState;
         case GET_PEOPLE_FETCH_SUCCESS: 
             return {
                 ...state,
@@ -29,6 +30,8 @@ export const peopleReducer = (state: StateType = initialState, action: Action): 
             };
         case GET_PEOPLE_FETCH_ERROR: 
             return state;
+        case GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST:
+            return initialState;
         case GET_PEOPLE_ITEM_BY_ID_FETCH_SUCCESS:
             return {
                 ...state,

@@ -9,8 +9,13 @@ export const getStarShipsTotalItems = (state: RootState): number => state.starSh
 
 export const getStarShipsItemId = (state: RootState, props: {id: string | null | undefined}) => props.id;
 
+export const getStarShipDetailsItem = (state: RootState): StarShipsData => state.starShips?.detailItem;
+
 export const getStarShipsItemById = createSelector(
     getStarShips,
+    getStarShipDetailsItem,
     getStarShipsItemId,
-    (data, id) => data.find(dataItem => dataItem.id === id)
+    (data, detailsItem, id) => data.length
+        ? data.find(dataItem => dataItem.id === id)
+        : detailsItem,
 );

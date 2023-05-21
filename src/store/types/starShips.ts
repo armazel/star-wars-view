@@ -14,3 +14,7 @@ export interface StarShipsResponse {
         results: StarShipsData[],
     }
 }
+
+export interface StarShipItemResponse {
+    data: StarShipsData,
+}

@@ -17,6 +17,5 @@ export const getPeopleItemById = createSelector(
     getPeopleItemId,
     (data, detailsItem, id) => data.length
         ? data.find(dataItem => dataItem.id === id)
-        : detailsItem
+        : detailsItem,
 );
-

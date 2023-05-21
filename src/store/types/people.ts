@@ -14,3 +14,7 @@ export interface PeopleResponse {
         results: PeopleData[],
     }
 }
+
+export interface PeopleItemResponse {
+    data: PeopleData,
+}

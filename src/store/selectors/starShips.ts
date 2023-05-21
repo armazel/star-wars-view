@@ -13,6 +13,8 @@ export const getStarShipDetailsItem = (state: RootState): StarShipsData => state
 
 export const getStarShipsSearchData = (state: RootState): string => state.starShips?.searchText;
 
+export const getStarShipSchema = (state: RootState) => state.starShips?.schema;
+
 export const getStarShipsItemById = createSelector(
     getStarShips,
     getStarShipDetailsItem,

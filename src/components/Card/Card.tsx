@@ -39,7 +39,8 @@ const Card: React.FC<CardParams> = ({
                     preview={false}
                     alt="example"
                     src={imgSrc}
-                    fallback={"/default_card.png"}
+                    // eslint-disable-next-line no-undef
+                    fallback={`${process.env.PUBLIC_URL}/default_card.png`}
                 />
             }
         >

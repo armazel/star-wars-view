@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FormProps } from "@rjsf/core";
 import Form from "@rjsf/antd";
+import { isEmpty } from "lodash";
 
 import { CardData } from "../../store/types";
-
 
 interface SchemaFormParams extends FormProps {
     formData?: CardData;
@@ -12,20 +12,18 @@ const SchemaForm: React.FC<SchemaFormParams> = ({
     schema,
     uiSchema,
     formData,
+    onSubmit,
     validator,
 }) => {
-    const handleSubmit = (formData) => {
-        // Обработчик отправки формы
-        console.log("Submitted data:", formData);
-    };
 
-    return (
+    return !isEmpty(formData) && (
         <Form
             schema={schema}
             uiSchema={uiSchema}
             formData={formData}
-            onSubmit={handleSubmit}
-            validator={validator || (() => {})}
+            onSubmit={onSubmit}
+            validator={validator}
+            noValidate
         />
     );
 };

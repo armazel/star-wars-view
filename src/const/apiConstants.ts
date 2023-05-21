@@ -16,4 +16,7 @@ export const API_URL = {
     getPeopleItemById: (id: number) => `${rootUrl}/people/${id}/`,
     getPlanetItemById: (id: number) => `${rootUrl}/planets/${id}/`,
     getStarShipItemById: (id: number) => `${rootUrl}/starships/${id}/`,
+    getPeopleSchema: `${rootUrl}/people/schema`,
+    getPlanetsSchema: `${rootUrl}/planets/schema`,
+    getStarShipsSchema: `${rootUrl}/starships/schema`,
 };

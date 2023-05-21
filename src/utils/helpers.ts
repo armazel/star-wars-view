@@ -1,4 +1,16 @@
+import { JSONSchema7 } from "json-schema";
+import { isEmpty } from "lodash";
+
 import { CardData, CardsData } from "../store/types";
+import LocalStorageService from "./localStorageHepler";
+
+interface CustomJSONSchema7 extends JSONSchema7 {
+    name?: string;
+}
+
+interface IndexedCardData {
+    [key: string]: any;
+}
 
 export const getItemImage = (item: string, number: string) => `https://starwars-visualguide.com/assets/img/${item}/${number}.jpg`;
 export const getIdFromUrl = (url: string) => url.split("/")[url.split("/").length - 2] || "1";
@@ -15,6 +27,14 @@ export const updateItemData = (data: CardData) => ({
     id: getIdFromUrl(data.url),
     cardType: getIdFromCardType(data.url),
 });
+
+export const mergeItemWithLocal = (data: CardData, entityKey: string) => {
+    const localStorageService = new LocalStorageService();
+    const localData = localStorageService.getItem<IndexedCardData>(entityKey) as IndexedCardData;
+    const updateDataId: string = updateItemData(data).id;
+
+    return  isEmpty(localData[updateDataId]) ? data : localData[updateDataId];
+};
 
 export const addQuery = (queries: { [key: string]: string }) => {
     if (!queries) return "";
@@ -44,4 +64,25 @@ export const updateCardDetailsData = (data: CardData, config: string[]) => {
     });
 
     return response;
+};
+
+export const updateSchema = (schema: JSONSchema7, requredleFields: string[]) => {
+    let properties = {} as CustomJSONSchema7;
+
+    requredleFields.forEach((item: string) => {
+        properties = {
+            ...properties,
+            [item]: schema.properties?.[item],
+        };
+    });
+
+    const { name, ...updateProperties } = properties; // removed name field for stable edit service and stable search
+
+    return {
+        ...schema,
+        properties: updateProperties,
+        required: requredleFields,
+        title: "",
+        description: "",
+    };
 };

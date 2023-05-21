@@ -13,6 +13,8 @@ export const getPlanetDetailsItem = (state: RootState): PlanetsData => state.pla
 
 export const getPlanetsSearchData = (state: RootState): string => state.planets?.searchText;
 
+export const getPlanetSchema = (state: RootState) => state.planets?.schema;
+
 export const getPlanetsItemById = createSelector(
     getPlanets,
     getPlanetDetailsItem,

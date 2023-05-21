@@ -16,6 +16,15 @@ export const GET_PLANETS_ITEM_BY_ID_FETCH_SUCCESS
 export const GET_PLANETS_ITEM_BY_ID_FETCH_ERROR
     = "planetsItem/load/FETCH_ERROR";
 
+export const GET_PLANET_SCHEMA_FETCH_REQUEST
+    = "planetSchema/load/FETCH_REQUEST";
+export const GET_PLANET_SCHEMA_FETCH_SUCCESS
+    = "planetSchema/load/FETCH_SUCCESS";
+export const GET_PLANET_SCHEMA_FETCH_ERROR
+    = "planetSchema/load/FETCH_ERROR";
+export const GET_PLANET_ITEM_BY_ID_UPDATE
+    = "planet/update";
+
 export const loadPlanetsData = createAction(
     GET_PLANETS_FETCH_REQUEST,
     (params: LoadCardParams) => (params)
@@ -29,3 +38,9 @@ export const loadPlanetItemById = createAction(
 );
 export const loadPlanetItemByIdSuccess = createAction(GET_PLANETS_ITEM_BY_ID_FETCH_SUCCESS);
 export const loadPlanetItemByIdError = createAction(GET_PLANETS_ITEM_BY_ID_FETCH_ERROR);
+
+export const loadPlanetSchema = createAction(GET_PLANET_SCHEMA_FETCH_REQUEST);
+export const loadPlanetSchemaSuccess = createAction(GET_PLANET_SCHEMA_FETCH_SUCCESS);
+export const loadPlanetSchemaError = createAction(GET_PLANET_SCHEMA_FETCH_ERROR);
+
+export const planetItemUpdate = createAction(GET_PLANET_ITEM_BY_ID_UPDATE);

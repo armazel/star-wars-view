@@ -5,15 +5,20 @@ import { SagaIterator } from "redux-saga";
 import {
     GET_PLANETS_FETCH_REQUEST,
     GET_PLANETS_ITEM_BY_ID_FETCH_REQUEST,
+    GET_PLANET_SCHEMA_FETCH_REQUEST,
     loadPlanetItemByIdError,
     loadPlanetItemByIdSuccess,
+    loadPlanetSchemaError,
+    loadPlanetSchemaSuccess,
     loadPlanetsDataError,
     loadPlanetsDataSuccess,
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
-import { updateData, updateItemData } from "../../utils/helpers";
+import { mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
 import { HandleLoadSagaParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
+import { requiredPlanetsFields } from "../../pages/Planets/PlanetDetails/requiredPlanetsFields";
+import { cardTypes } from "../../const/cardType";
 
 function* handleLoadPlanetsSaga({
     payload
@@ -31,20 +36,33 @@ function* handleLoadPlanetsSaga({
     }
 }
 
-function* handleLoadPeopleItemByIdSaga({ payload }: { id: string }): SagaIterator {
+function* handleLoadPlanetItemByIdSaga({ payload }: { id: string }): SagaIterator {
 
     try {
         const response: PlanetsItemResponse = yield call(axios.get, API_URL.getPlanetItemById(payload.id));
 
         yield put(loadPlanetItemByIdSuccess({
-            detailItem: updateItemData(response.data as PlanetsData),
+            detailItem: updateItemData(mergeItemWithLocal(response.data as PlanetsData, cardTypes.PLANETS)),
         }));
     } catch (error) {
         yield put(loadPlanetItemByIdError(error));
     }
 }
 
+function* handleLoadPlanetSchemaaga(): SagaIterator {
+    try {
+        const response: any = yield call(axios.get, API_URL.getPlanetsSchema);
+
+        yield put(loadPlanetSchemaSuccess({
+            schema: updateSchema(response.data, requiredPlanetsFields),
+        }));
+    } catch (error) {
+        yield put(loadPlanetSchemaError(error));
+    }
+}
+
 export function* watchLoadPlanetsData() {
     yield takeEvery(GET_PLANETS_FETCH_REQUEST, handleLoadPlanetsSaga);
-    yield takeEvery(GET_PLANETS_ITEM_BY_ID_FETCH_REQUEST, handleLoadPeopleItemByIdSaga);
+    yield takeEvery(GET_PLANETS_ITEM_BY_ID_FETCH_REQUEST, handleLoadPlanetItemByIdSaga);
+    yield takeEvery(GET_PLANET_SCHEMA_FETCH_REQUEST, handleLoadPlanetSchemaaga);
 }

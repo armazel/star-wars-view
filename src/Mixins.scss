@@ -29,3 +29,19 @@
 @mixin main-color-borders-top {
     border-top: 1px solid #fcdf2a;
 }
+
+@mixin details-wrapper {
+    background: transparent;
+    @include main-color-borders;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 24px;
+    margin: 24px;
+}
+
+@mixin details-wrapper-submit {
+    border-radius: 0;
+    background: #2a2926;
+    @include main-color-borders;
+}

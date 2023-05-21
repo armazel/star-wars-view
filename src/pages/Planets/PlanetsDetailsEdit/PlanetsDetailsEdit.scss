@@ -1,0 +1,50 @@
+@import "../../../Mixins.scss";
+
+.PlanetsDetailsEdit {
+    @include details-wrapper;
+    & .ant-alert-error {
+        background-color: gray;
+    }
+    & .ant-form-item-extra {
+        display: none !important;
+    }
+    & .ant-form-item {
+        & .ant-form-item-control-input {
+            background: transparent;
+            border-radius: 0;
+        }
+        & .ant-input-affix-wrapper {
+            background: transparent;
+            border-radius: 0;
+            width: 600px !important;
+            @include main-color-borders;
+            & .ant-input {
+                background: transparent;
+                padding: 4px;
+            }
+        }
+    }
+    & .ant-btn {
+        @include details-wrapper-submit;
+    }
+}
+
+@media(max-width: 768px) {
+    .PlanetsDetailsEdit {
+        & .ant-form-item {
+            & .ant-input-affix-wrapper {
+                width: 300px !important;
+            }
+        }
+    }
+}
+
+@media(max-width: 425px) {
+    .PlanetsDetailsEdit {
+        & .ant-form-item {
+            & .ant-input-affix-wrapper {
+                width: 200px !important;
+            }
+        }
+    }
+}

@@ -5,15 +5,20 @@ import axios from "axios";
 import { 
   GET_PEOPLE_FETCH_REQUEST,
   GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST,
+  GET_PEOPLE_SCHEMA_FETCH_REQUEST,
   loadPeopleDataError,
   loadPeopleDataSuccess,
   loadPeopleItemByIdError,
   loadPeopleItemByIdSuccess,
+  loadPeopleSchemaError,
+  loadPeopleSchemaSuccess,
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
 import { HandleLoadSagaParams, LoadCardParams, PeopleData, PeopleItemResponse, PeopleResponse } from "../types";
-import { updateData, updateItemData } from "../../utils/helpers";
+import { mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
+import { requredPeopleFields } from "../../pages/People/PeopleDetails/requiredPeopleFields";
+import { cardTypes } from "../../const/cardType";
 
 function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
@@ -30,20 +35,34 @@ function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator 
   }
 }
 
-function* handleLoadPeopleItemByIdSaga({ payload }: { id: string }): SagaIterator {
+function* handleLoadPeopleItemByIdSaga({ payload }: string): SagaIterator {
 
   try {
     const response: PeopleItemResponse = yield call(axios.get, API_URL.getPeopleItemById(payload.id));
 
     yield put(loadPeopleItemByIdSuccess({
-      detailItem: updateItemData(response.data as PeopleData),
+      detailItem: updateItemData(mergeItemWithLocal(response.data as PeopleData, cardTypes.PEOPLE)),
     }));
   } catch (error) {
     yield put(loadPeopleItemByIdError(error));
   }
 }
 
+function* handleLoadPeopleSchemaaga(): SagaIterator {
+
+  try {
+    const response: any = yield call(axios.get, API_URL.getPeopleSchema);
+
+    yield put(loadPeopleSchemaSuccess({
+      schema: updateSchema(response.data, requredPeopleFields),
+    }));
+  } catch (error) {
+    yield put(loadPeopleSchemaError(error));
+  }
+}
+
 export function* watchLoadPeopleData() {
   yield takeEvery(GET_PEOPLE_FETCH_REQUEST, handleLoadPeopleSaga);
   yield takeEvery(GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST, handleLoadPeopleItemByIdSaga);
+  yield takeEvery(GET_PEOPLE_SCHEMA_FETCH_REQUEST, handleLoadPeopleSchemaaga);
 }

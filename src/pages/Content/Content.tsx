@@ -10,11 +10,14 @@ import StarShipsControls from "../StarShips/StarShipsControls";
 import PlanetsControls from "../Planets/PlanetsControls";
 import PeopleDetails from "../People/PeopleDetails/PeopleDetails";
 
-import "./Content.scss";
 import PlanetsDetails from "../Planets/PlanetDetails/PlanetsDetails";
 import StarShipsDetails from "../StarShips/StarShipsDetails/StarShipsDetails";
 import { routesList } from "../../const/routesList";
+import PeopleDetailsEdit from "../People/PeopleDetailsEdit/PeopleDetailsEdit";
+import PlanetsDetailsEdit from "../Planets/PlanetsDetailsEdit/PlanetsDetailsEdit";
+import StarShipsDetailsEdit from "../StarShips/StarShipsDetailsEdit/StarShipsDetailsEdit";
 
+import "./Content.scss";
 
 const componentName = "Content";
 
@@ -59,6 +62,10 @@ const Content: React.FC = () => {
                 <Route path={routesList.PEOPLE_DETAILS} element={<PeopleDetails />} />
                 <Route path={routesList.STAR_SHIPS_DETAILS} element={<StarShipsDetails />} />
                 <Route path={routesList.PLANETS_DETAILS} element={<PlanetsDetails />} />
+
+                <Route path={routesList.PEOPLE_DETAILS_EDIT} element={<PeopleDetailsEdit />} />
+                <Route path={routesList.PLANETS_DETAILS_EDIT} element={<PlanetsDetailsEdit />} />
+                <Route path={routesList.STAR_SHIPS_DETAILS_EDIT} element={<StarShipsDetailsEdit />} />
             </Routes>
         </Layout.Content>
     );

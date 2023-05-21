@@ -16,6 +16,15 @@ export const GET_STAR_SHIP_ITEM_BY_ID_FETCH_SUCCESS
 export const GET_STAR_SHIP_ITEM_BY_ID_FETCH_ERROR
     = "star_ship_item/load/FETCH_ERROR";
 
+export const GET_STAR_SHIP_SCHEMA_FETCH_REQUEST
+    = "starShipSchema/load/FETCH_REQUEST";
+export const GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS
+    = "starShipSchema/load/FETCH_SUCCESS";
+export const GET_STAR_SHIP_SCHEMA_FETCH_ERROR
+    = "starShipSchema/load/FETCH_ERROR";
+export const GET_STAR_SHIP_ITEM_BY_ID_UPDATE
+    = "starShip/update";
+
 export const loadStarShipsData = createAction(
     GET_STAR_SHIPS_FETCH_REQUEST,
     (params: LoadCardParams) => (params)
@@ -29,3 +38,9 @@ export const loadStarShipItemById = createAction(
 );
 export const loadStarShipItemByIdSuccess = createAction(GET_STAR_SHIP_ITEM_BY_ID_FETCH_SUCCESS);
 export const loadStarShipItemByIdError = createAction(GET_STAR_SHIP_ITEM_BY_ID_FETCH_ERROR);
+
+export const loadStarShipSchema = createAction(GET_STAR_SHIP_SCHEMA_FETCH_REQUEST);
+export const loadStarShipSchemaSuccess = createAction(GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS);
+export const loadStarShipSchemaError = createAction(GET_STAR_SHIP_SCHEMA_FETCH_ERROR);
+
+export const starShipItemUpdate = createAction(GET_STAR_SHIP_ITEM_BY_ID_UPDATE);

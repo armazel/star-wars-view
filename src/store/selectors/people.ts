@@ -13,6 +13,8 @@ export const getPeopleDetailsItem = (state: RootState): PeopleData => state.peop
 
 export const getPeopleSearchData = (state: RootState): string => state.people?.searchText;
 
+export const getPeopleSchema = (state: RootState) => state.people?.schema;
+
 export const getPeopleItemById = createSelector(
     getPeople,
     getPeopleDetailsItem,

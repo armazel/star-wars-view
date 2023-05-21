@@ -11,7 +11,7 @@ import { getPlanetsItemById } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
 import { CardData, CardDetailsRenderConfigType } from "../../../store/types";
 import { updateCardDetailsData } from "../../../utils/helpers";
-import { requredPlanetsFields } from "./requredPlanetsFields";
+import { requiredPlanetsFields } from "./requiredPlanetsFields";
 
 const PlanetsDetails: React.FC = () => {
 
@@ -22,7 +22,7 @@ const PlanetsDetails: React.FC = () => {
     }, []);
 
     const configRender: CardDetailsRenderConfigType = {
-        requiredFields: requredPlanetsFields,
+        requiredFields: requiredPlanetsFields,
     };
 
     const { id } = useParams();

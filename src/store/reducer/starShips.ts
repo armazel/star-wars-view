@@ -1,9 +1,12 @@
+import { JSONSchema7 } from "json-schema";
+
 import { 
     GET_STAR_SHIPS_FETCH_REQUEST,
     GET_STAR_SHIPS_FETCH_SUCCESS,
     GET_STAR_SHIPS_FETCH_ERROR,
     GET_STAR_SHIP_ITEM_BY_ID_FETCH_SUCCESS,
     GET_STAR_SHIP_ITEM_BY_ID_FETCH_REQUEST,
+    GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS,
 } from "../actions";
 import { Action, StarShipsData } from "../types";
 
@@ -12,6 +15,7 @@ type StateType = {
     count: number,
     detailItem: StarShipsData,
     searchText: string,
+    schema?: JSONSchema7,
 };
 
 const initialState: StateType = {
@@ -19,6 +23,7 @@ const initialState: StateType = {
     count: 0,
     detailItem: {} as StarShipsData,
     searchText: "",
+    schema: {},
 };
 
 export const starShipsReducer = (state: StateType = initialState, action: Action): StateType => {
@@ -35,6 +40,11 @@ export const starShipsReducer = (state: StateType = initialState, action: Action
         case GET_STAR_SHIP_ITEM_BY_ID_FETCH_REQUEST: 
             return initialState;
         case GET_STAR_SHIP_ITEM_BY_ID_FETCH_SUCCESS:
+            return {
+                ...state,
+                ...action.payload,
+            };
+        case GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS:
             return {
                 ...state,
                 ...action.payload,

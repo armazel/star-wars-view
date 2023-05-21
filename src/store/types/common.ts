@@ -33,3 +33,9 @@ export interface HandleLoadSagaParams {
 export interface CardDetailsRenderConfigType {
     requiredFields: string[],
 }
+
+export interface EntityLocalStorageData {
+    [key: string]: {
+        [key: string]: CardData,
+    }
+}

@@ -1,4 +1,4 @@
-export const requredPlanetsFields: string[] = [
+export const requiredPlanetsFields: string[] = [
     "climate",
     "diameter",
     "gravity",

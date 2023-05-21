@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Col } from "antd";
 import { AnyAction } from "redux";
+import { toRoman } from "roman-numerals";
+
 import { Pagination as PaginationComponent } from "antd";
+
 import { LoadCardParams } from "../../store/types";
 
 import "./Pagination.scss";
@@ -27,6 +30,9 @@ const Pagination: React.FC<any> = ({
         });
     };
 
+    const itemRender = (page: number, type: string, originalElement: React.ReactNode) => 
+        type === "page" ? toRoman(page) : originalElement;
+
     return (
         <Col className={componentName}>
             <PaginationComponent 
@@ -38,6 +44,7 @@ const Pagination: React.FC<any> = ({
                 responsive
                 onChange={onChange}
                 showSizeChanger={false}
+                itemRender={itemRender}
             />                               
         </Col>
     );

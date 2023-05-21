@@ -4,13 +4,16 @@ import axios from "axios";
 
 import { 
   GET_PEOPLE_FETCH_REQUEST,
+  GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST,
   loadPeopleDataError,
   loadPeopleDataSuccess,
+  loadPeopleItemByIdError,
+  loadPeopleItemByIdSuccess,
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
-import { HandleLoadSagaParams, PeopleResponse } from "../types";
-import { updateData } from "../../utils/helpers";
+import { HandleLoadSagaParams, LoadCardParams, PeopleData, PeopleResponse } from "../types";
+import { updateData, updateItemData } from "../../utils/helpers";
 
 function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
@@ -26,6 +29,20 @@ function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator 
   }
 }
 
+function* handleLoadPeopleItemByIdSaga({ payload }: { id: string }): SagaIterator {
+
+  try {
+    const response: PeopleResponse = yield call(axios.get, API_URL.getPeopleItemById(payload.id));
+
+    yield put(loadPeopleItemByIdSuccess({
+      detailItem: updateItemData(response.data as PeopleData),
+    }));
+  } catch (error) {
+    yield put(loadPeopleItemByIdError(error));
+  }
+}
+
 export function* watchLoadPeopleData() {
   yield takeEvery(GET_PEOPLE_FETCH_REQUEST, handleLoadPeopleSaga);
+  yield takeEvery(GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST, handleLoadPeopleItemByIdSaga);
 }

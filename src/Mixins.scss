@@ -1,0 +1,31 @@
+@mixin center-vertically {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@mixin start-horizontally {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+@mixin start-vertically {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+@mixin main-color-borders {
+    border: 1px solid #fcdf2a;
+}
+
+@mixin main-color-borders-bottom {
+    border-bottom: 1px solid #fcdf2a;
+}
+
+@mixin main-color-borders-top {
+    border-top: 1px solid #fcdf2a;
+}

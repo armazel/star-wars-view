@@ -15,12 +15,13 @@ const componentName: string = "Spinner";
 const Spinner: React.FC<SpinnerParams> = ({ children }) => {
     const isLoading = useSelector(getIsLoading);
     const className: string = isLoading ? "hide" : "show";
-    console.log("isLoading", isLoading);
+
     return (
         <div className={`${componentName} ${className}`}>
             <Spin
                 spinning={isLoading}
-                indicator={<img src="loading.gif" alt="Loading" />}
+                // eslint-disable-next-line no-undef
+                indicator={<img src={`${process.env.PUBLIC_URL}/loading.gif`} alt="Loading" />}
             />
                 
                 <div className={`content-${className}`}>{children}</div>

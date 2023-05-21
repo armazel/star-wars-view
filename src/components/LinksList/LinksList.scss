@@ -1,3 +1,5 @@
+@import "../../Mixins";
+
 .LinksList {
     display: flex;
     justify-content: flex-start;
@@ -50,8 +52,8 @@
         & .link_item {
             font-size: 16px;
             padding: 16px;
-            border-bottom: 1px solid #fcdf2a;
             border-right: none;
+            @include main-color-borders-bottom;
         }
     }  
 }

@@ -18,7 +18,12 @@ const StarShipsPage: React.FC = () => {
     }, []);
 
     return (
-        <CardList info={starShips} entity={entities.STAR_SHIPS} />
+        <CardList 
+            info={starShips}
+            entity={entities.STAR_SHIPS}
+            imgHeight={300}
+            width={300}
+        />
     );
 };
 

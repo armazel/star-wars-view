@@ -18,7 +18,8 @@ const Header: React.FC = () => {
                     <Link to={"/"}>
                         <div className={"logo_wrapper"}>
                             <Image 
-                                src="logo.png"
+                                // eslint-disable-next-line no-undef
+                                src={`${process.env.PUBLIC_URL}/logo.png`}
                                 preview={false}
                                 height="auto"
                             />

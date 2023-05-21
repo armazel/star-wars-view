@@ -3,14 +3,16 @@ import { Route, Routes } from "react-router-dom";
 import { Col, Row, Layout } from "antd";
 
 import PeoplePage from "../People/PeoplePage";
-import Details from "../Details/Details";
 import StarShipsPage from "../StarShips/StarShipsPage";
 import PlanetsPage from "../Planets/PlanetsPage";
 import PeopleControls from "../People/PeopleControls";
 import StarShipsControls from "../StarShips/StarShipsControls";
 import PlanetsControls from "../Planets/PlanetsControls";
+import PeopleDetails from "../People/PeopleDetails/PeopleDetails";
 
 import "./Content.scss";
+import PlanetsDetails from "../Planets/PlanetDetails/PlanetsDetails";
+import StarShipsDetails from "../StarShips/StarShipsDetails/StarShipsDetails";
 
 
 const componentName = "Content";
@@ -51,9 +53,9 @@ const Content: React.FC = () => {
                 </Row>
             </Layout.Content>
             <Routes>
-                <Route path="/people/:id" element={<Details />} />
-                <Route path="/starships/:id" element={<Details />} />
-                <Route path="/planets/:id" element={<Details />} />
+                <Route path="/people/:id" element={<PeopleDetails />} />
+                <Route path="/starships/:id" element={<StarShipsDetails />} />
+                <Route path="/planets/:id" element={<PlanetsDetails />} />
             </Routes>
         </Layout.Content>
     );

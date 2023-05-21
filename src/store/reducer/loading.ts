@@ -13,10 +13,12 @@ import { Action } from "../types";
 
 type StateType = {
     isLoading: boolean,
+    isLoaded: boolean;
 };
 
 const initialState: StateType = {
     isLoading: false,
+    isLoaded: false,
 };
 
 export const loadingReducer = (state: StateType = initialState, action: Action): StateType => {
@@ -27,6 +29,7 @@ export const loadingReducer = (state: StateType = initialState, action: Action):
             return {
                 ...state,
                 isLoading: true,
+                isLoaded: true,
             };
         case GET_PEOPLE_FETCH_SUCCESS:
         case GET_PLANETS_FETCH_SUCCESS:

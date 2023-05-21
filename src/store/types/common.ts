@@ -4,6 +4,7 @@ export interface Action {
 }
 
 export type CardType = "people" | "starships" | "planets";
+
 export type LoadCardParams = {
     page?: number,
     search?: string,
@@ -27,4 +28,8 @@ export interface GeneralPageData {
 export interface HandleLoadSagaParams {
     payload: LoadCardParams,
     type: string,
+}
+
+export interface CardDetailsRenderConfigType {
+    requiredFields: string[],
 }

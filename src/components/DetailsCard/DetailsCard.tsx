@@ -2,9 +2,9 @@ import React from "react";
 import { Card as CardComponent, Image } from "antd";
 import { CardData } from "../../store/types";
 
-import "./Card.scss";
+import "./DetailsCard.scss";
 
-const componentName: string = "Card";
+const componentName: string = "DetailsCard";
 
 type CardParams = {
     cardInfo: CardData,
@@ -16,7 +16,7 @@ type CardParams = {
     width?: string,
 };
 
-const Card: React.FC<CardParams> = ({
+const DetailsCard: React.FC<CardParams> = ({
     cardInfo,
     imgSrc,
     imgHeight,
@@ -25,14 +25,27 @@ const Card: React.FC<CardParams> = ({
     title,
     width,
 }) => {
+    console.log('imgSrc', imgSrc);
+    const renderData = (data: CardData) => {
+        return (
+            <>
+                {
+                    Object.keys(cardInfo)?.map((item) => (
+                        <p key={`${item}`}>{`${item}: ${data[item as keyof CardData]}`}</p>
+                    ))
+                }
+            </>
+        );
+    };
 
     return (
         <CardComponent
             title={title}
             className={componentName}
             hoverable
-            style={{width}}
-            cover={
+            style={{ width }}
+        >
+            <div className="wrapper">
                 <Image
                     height={imgHeight}
                     width={imgWidth}
@@ -41,23 +54,22 @@ const Card: React.FC<CardParams> = ({
                     src={imgSrc}
                     fallback={"/default_card.png"}
                 />
-            }
-        >
-            {
-                renderNode 
-                    ? renderNode
-                    : (
-                        <span>{cardInfo?.name}</span>
-                    )
-            }
+                <div className="description">
+                    {  
+                        renderNode
+                            ? renderNode
+                            : renderData(cardInfo)
+                    }
+                </div>
+            </div>
         </CardComponent>
     );
 };
 
-Card.defaultProps = {
+DetailsCard.defaultProps = {
     imgSrc: "",
     imgHeight: 300,
     imgWidth: 300,
 };
 
-export default Card;
+export default DetailsCard;

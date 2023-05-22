@@ -6,6 +6,7 @@ import { loadPeopleData } from "../../store/actions";
 import { getPeople } from "../../store/selectors";
 import CardList from "../../components/CardsList/CardList";
 import { entities } from "../../const/entities";
+import { defaultPage } from "../../const/apiConstants";
 
 const PeoplePage: React.FC = () => {
 
@@ -13,10 +14,9 @@ const PeoplePage: React.FC = () => {
     const people = useSelector(getPeople);
 
     useEffect(() => {
-
         if(isEmpty(people)) {
             dispatch(loadPeopleData({
-                page: 1,
+                page: defaultPage,
             }));
         }
     }, []);

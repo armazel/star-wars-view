@@ -6,6 +6,7 @@ import CardList from "../../components/CardsList/CardList";
 import { entities } from "../../const/entities";
 import { loadStarShipsData } from "../../store/actions";
 import { getStarShips } from "../../store/selectors";
+import { defaultPage } from "../../const/apiConstants";
 
 const StarShipsPage: React.FC = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const StarShipsPage: React.FC = () => {
     useEffect(() => {
         if(isEmpty(starShips)) {
             dispatch(loadStarShipsData({
-                page: 1,
+                page: defaultPage,
             }));
         }
     }, []);

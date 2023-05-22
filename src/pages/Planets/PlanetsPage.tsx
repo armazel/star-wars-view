@@ -6,6 +6,7 @@ import CardList from "../../components/CardsList/CardList";
 import { entities } from "../../const/entities";
 import { loadPlanetsData } from "../../store/actions";
 import { getPlanets } from "../../store/selectors";
+import { defaultPage } from "../../const/apiConstants";
 
 const PlanetsPage: React.FC = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const PlanetsPage: React.FC = () => {
     useEffect(() => {
         if(isEmpty(planets)) {
             dispatch(loadPlanetsData({
-                page: 1,
+                page: defaultPage,
             }));
         }
     }, []);

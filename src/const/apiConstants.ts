@@ -3,6 +3,8 @@ import { addQuery } from "../utils/helpers";
 
 const rootUrl: string = "https://swapi.py4e.com/api";
 
+export const defaultPage: number = 1;
+
 export const API_URL = {
     getPeopleData: (
         params: LoadCardParams

@@ -10,7 +10,6 @@ import { getPlanets } from "../../store/selectors";
 const PlanetsPage: React.FC = () => {
     const dispatch = useDispatch();
     const planets = useSelector(getPlanets);
-    console.log("planets", planets);
 
     useEffect(() => {
         if(isEmpty(planets)) {

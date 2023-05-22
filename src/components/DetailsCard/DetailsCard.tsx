@@ -25,7 +25,7 @@ const DetailsCard: React.FC<CardParams> = ({
     title,
     width,
 }) => {
-    console.log("imgSrc", imgSrc);
+
     const renderData = (data: CardData) => {
         return (
             <>

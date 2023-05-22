@@ -10,7 +10,7 @@ import { getStarShips } from "../../store/selectors";
 const StarShipsPage: React.FC = () => {
     const dispatch = useDispatch();
     const starShips = useSelector(getStarShips);
-    console.log("starShips", starShips);
+
     useEffect(() => {
         if(isEmpty(starShips)) {
             dispatch(loadStarShipsData({

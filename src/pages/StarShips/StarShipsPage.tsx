@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { isEmpty } from "lodash";
+
 import CardList from "../../components/CardsList/CardList";
 import { entities } from "../../const/entities";
 import { loadStarShipsData } from "../../store/actions";
@@ -8,9 +10,9 @@ import { getStarShips } from "../../store/selectors";
 const StarShipsPage: React.FC = () => {
     const dispatch = useDispatch();
     const starShips = useSelector(getStarShips);
-
+    console.log("starShips", starShips);
     useEffect(() => {
-        if(!starShips.length) {
+        if(isEmpty(starShips)) {
             dispatch(loadStarShipsData({
                 page: 1,
             }));

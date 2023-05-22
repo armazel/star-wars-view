@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { isEmpty } from "lodash";
 
 import { loadPeopleData } from "../../store/actions";
 import { getPeople } from "../../store/selectors";
@@ -10,9 +11,10 @@ const PeoplePage: React.FC = () => {
 
     const dispatch = useDispatch();
     const people = useSelector(getPeople);
+    console.log("people", people);
 
     useEffect(() => {
-        if(!people.length) {
+        if(isEmpty(people)) {
             dispatch(loadPeopleData({
                 page: 1,
             }));

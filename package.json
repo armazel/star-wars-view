@@ -43,7 +43,7 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{ts,tsx}",
     "test": "react-scripts test"

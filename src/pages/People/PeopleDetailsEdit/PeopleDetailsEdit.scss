@@ -15,8 +15,7 @@
     & .control-label {
         margin-bottom: 12px;
     }
-    & .form-control,
-    & .form-control:hover {
+    & .form-control {
         background: transparent;
         border-radius: 0;
         width: 600px !important;
@@ -35,8 +34,7 @@
 
 @media(max-width: 768px) {
     .PeopleDetailsEdit {
-        & .form-control,
-        & .form-control:hover {
+        & .form-control {
             width: 300px !important;
         }
     }
@@ -48,8 +46,7 @@
             font-size: 20px !important;
         }
 
-        & .form-control,
-        & .form-control:hover {
+        & .form-control {
             width: 200px !important;
         }
     }

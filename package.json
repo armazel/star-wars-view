@@ -42,7 +42,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "start": "npm run build & serve -s build -l 4000",
+    "start": "npm run start",
     "launch": "react-scripts start",
     "lint": "eslint src/**/*.{ts,tsx}",
     "test": "react-scripts test"

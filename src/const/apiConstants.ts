@@ -13,9 +13,9 @@ export const API_URL = {
     getStarShips: (
         params: LoadCardParams
     ) => `${rootUrl}/starships/${addQuery(params as {[ key: string]: string })}`,
-    getPeopleItemById: (id: number) => `${rootUrl}/people/${id}/`,
-    getPlanetItemById: (id: number) => `${rootUrl}/planets/${id}/`,
-    getStarShipItemById: (id: number) => `${rootUrl}/starships/${id}/`,
+    getPeopleItemById: (id: string) => `${rootUrl}/people/${id}/`,
+    getPlanetItemById: (id: string) => `${rootUrl}/planets/${id}/`,
+    getStarShipItemById: (id: string) => `${rootUrl}/starships/${id}/`,
     getPeopleSchema: `${rootUrl}/people/schema`,
     getPlanetsSchema: `${rootUrl}/planets/schema`,
     getStarShipsSchema: `${rootUrl}/starships/schema`,

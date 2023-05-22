@@ -16,7 +16,7 @@ import {
 
 import { API_URL } from "../../const/apiConstants";
 import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
-import { HandleLoadSagaParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
+import { HandleLoadSagaParams, LoadCardParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
 import { requiredPlanetsFields } from "../../pages/Planets/PlanetDetails/requiredPlanetsFields";
 import { cardTypes } from "../../const/cardType";
 
@@ -36,10 +36,10 @@ function* handleLoadPlanetsSaga({
     }
 }
 
-function* handleLoadPlanetItemByIdSaga({ payload }: { id: string }): SagaIterator {
+function* handleLoadPlanetItemByIdSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
     try {
-        const response: PlanetsItemResponse = yield call(axios.get, API_URL.getPlanetItemById(payload.id));
+        const response: PlanetsItemResponse = yield call(axios.get, API_URL.getPlanetItemById(payload.id as string));
 
         yield put(loadPlanetItemByIdSuccess({
             detailItem: mergeItemWithLocal(updateItemData(response.data as PlanetsData), cardTypes.PLANETS),

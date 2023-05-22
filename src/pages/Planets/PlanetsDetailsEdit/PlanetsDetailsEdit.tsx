@@ -41,7 +41,7 @@ const PlanetsDetailsEdit: React.FC = () => {
 
     const handleSubmit = (e: IChangeEvent) => {
         const localStorageService = new LocalStorageService();
-        localStorageService.setItem<PlanetsData>(cardTypes.PLANETS, id as string, e.formData)
+        localStorageService.setItem<PlanetsData>(cardTypes.PLANETS, id as string, e.formData);
         dispatch(planetDataUpdate());
 
         navigate(`/${cardTypes.PLANETS}/${id}`);

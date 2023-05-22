@@ -35,10 +35,10 @@ function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator 
   }
 }
 
-function* handleLoadPeopleItemByIdSaga({ payload }: string): SagaIterator {
+function* handleLoadPeopleItemByIdSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
   try {
-    const response: PeopleItemResponse = yield call(axios.get, API_URL.getPeopleItemById(payload.id));
+    const response: PeopleItemResponse = yield call(axios.get, API_URL.getPeopleItemById(payload.id as string));
 
     yield put(loadPeopleItemByIdSuccess({
       detailItem: mergeItemWithLocal(updateItemData(response.data as PeopleData), cardTypes.PEOPLE),

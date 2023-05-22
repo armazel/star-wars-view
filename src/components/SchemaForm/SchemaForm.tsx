@@ -16,7 +16,7 @@ const SchemaForm: React.FC<SchemaFormParams> = ({
     validator,
 }) => {
 
-    return !isEmpty(formData) && (
+    return (
         <Form
             schema={schema}
             uiSchema={uiSchema}

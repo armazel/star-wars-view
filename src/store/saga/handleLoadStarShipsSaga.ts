@@ -16,7 +16,7 @@ import {
 import { API_URL } from "../../const/apiConstants";
 import { SagaIterator } from "redux-saga";
 import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
-import { HandleLoadSagaParams, StarShipItemResponse, StarShipsData } from "../types";
+import { HandleLoadSagaParams, LoadCardParams, StarShipItemResponse, StarShipsData } from "../types";
 import { requiredStarShipsFields } from "../../pages/StarShips/StarShipsDetails/requiredStarShipsFields";
 import { cardTypes } from "../../const/cardType";
 
@@ -36,10 +36,10 @@ function* handleLoadStarShipsSaga({
     }
 }
 
-function* handleLoadStarShipItemByIdSaga({ payload }: { id: string }): SagaIterator {
+function* handleLoadStarShipItemByIdSaga({ payload }: HandleLoadSagaParams): SagaIterator {
 
     try {
-        const response: StarShipItemResponse = yield call(axios.get, API_URL.getStarShipItemById(payload.id));
+        const response: StarShipItemResponse = yield call(axios.get, API_URL.getStarShipItemById(payload.id as string));
 
         yield put(loadStarShipItemByIdSuccess({
             detailItem: mergeItemWithLocal(updateItemData(response.data as StarShipsData), cardTypes.STAR_SHIPS),

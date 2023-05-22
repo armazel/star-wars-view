@@ -8,6 +8,7 @@ export type CardType = "people" | "starships" | "planets";
 export type LoadCardParams = {
     page?: number,
     search?: string,
+    id?: string,
 };
 
 export type CardData = {

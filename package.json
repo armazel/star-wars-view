@@ -41,7 +41,7 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--max-old-space-size=2048 react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{ts,tsx}",
     "test": "react-scripts test"

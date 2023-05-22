@@ -1,11 +1,12 @@
 import React from "react";
 
-import { CardData, CardType } from "../../store/types";
+import { CardData } from "../../store/types";
 import DetailsCard from "../DetailsCard/DetailsCard";
 
-import "./Details.scss";
 import { getItemImage } from "../../utils/helpers";
 import DetailsTitle from "./DetailsTitle";
+
+import "./Details.scss";
 
 const componentName: string = "Details";
 

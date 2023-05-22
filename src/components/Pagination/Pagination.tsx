@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Col } from "antd";
 import { AnyAction } from "redux";
 import { toRoman } from "roman-numerals";
-
 import { Pagination as PaginationComponent } from "antd";
 
 import { LoadCardParams } from "../../store/types";

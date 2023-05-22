@@ -2,8 +2,8 @@ import React from "react";
 import { Image } from "antd";
 import { Col, Row } from "antd";
 import { Link } from "react-router-dom";
-
 import { Layout } from "antd";
+
 import NavigationPanel from "../NavigationPanel/NavigationPanel";
 
 import "./Header.scss";

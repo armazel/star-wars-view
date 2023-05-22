@@ -1,9 +1,8 @@
 @import "../../Global.scss";
 
 .CardList {
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    @include flex-center;
     position: relative;
     width: 100%;
     min-height: 60vh;

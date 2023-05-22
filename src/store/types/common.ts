@@ -3,8 +3,6 @@ export interface Action {
     payload?: any;
 }
 
-export type CardType = "people" | "starships" | "planets";
-
 export type LoadCardParams = {
     page?: number,
     search?: string,
@@ -21,7 +19,7 @@ export type CardsData = CardData[];
 
 export interface GeneralPageData {
     id: string,
-    cardType: CardType,
+    cardType: string,
     name: string,
     url: string,
 }

@@ -26,6 +26,10 @@ body {
   border: none;
 }
 
+input:focus {
+  outline: $main-color !important;
+}
+
 .ant-layout {
   background-color: transparent !important;
 }

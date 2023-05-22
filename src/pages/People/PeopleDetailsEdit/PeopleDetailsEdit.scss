@@ -2,52 +2,51 @@
 
 .PeopleDetailsEdit {
     @include details-wrapper;
-    & .ant-alert-error {
-        background-color: gray;
-    }
-    & .ant-form-item-extra {
+    & .field-description {
         display: none !important;
     }
-    & .ant-form-item {
-        & .ant-form-item-control-input {
-            background: transparent;
-            border-radius: 0;
-        }
-        & .ant-input-affix-wrapper {
-            background: transparent;
-            border-radius: 0;
-            width: 600px !important;
-            @include main-color-borders;
-            & .ant-input {
-                background: transparent;
-                padding: 4px;
-            }
+    & #root {
+        flex-direction: column;
+        & .form-group {
+            display: flex;
+            flex-direction: column;
         }
     }
-    & .ant-row {
-        
+    & .control-label {
+        margin-bottom: 12px;
     }
-    & .ant-btn {
+    & .form-control,
+    & .form-control:hover {
+        background: transparent;
+        border-radius: 0;
+        width: 600px !important;
+        padding: 8px;
+        font-size: 14px;
+        margin-bottom: 12px;
+        @include main-color-borders;
+        cursor: pointer;
+    }
+
+    & .btn {
         @include details-wrapper-submit;
+        padding: 12px;
     }
 }
 
 @media(max-width: 768px) {
     .PeopleDetailsEdit {
-        & .ant-form-item {
-            & .ant-input-affix-wrapper {
-                width: 300px !important;
-            }
+        & .form-control,
+        & .form-control:hover {
+            width: 300px !important;
         }
     }
 }
 
 @media(max-width: 425px) {
     .PeopleDetailsEdit {
-        & .ant-form-item {
-            & .ant-input-affix-wrapper {
-                width: 200px !important;
-            }
+        & .form-control,
+        & .form-control:hover {
+            width: 200px !important;
         }
     }
 }

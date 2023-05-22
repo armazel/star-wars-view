@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Col, Row, Layout } from "antd";
 
 import PeoplePage from "../People/PeoplePage";
@@ -54,7 +54,6 @@ const Content: React.FC = () => {
                                     </Col>
                                 </>
                             } />
-                            <Route path="*" element={<Navigate to={routesList.DEFAULT} />} />
                         </Routes>
                     </Col>
                 </Row>

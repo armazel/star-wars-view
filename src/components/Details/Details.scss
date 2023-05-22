@@ -21,3 +21,21 @@
         @include details-wrapper-submit;
     }
 }
+
+@media(max-width: 768px) {
+    .DetailsTitle {
+        & .ant-typography {
+            font-size: 24px;
+        }
+    }
+    
+}
+
+@media(max-width: 425px) {
+    .DetailsTitle {
+        & .ant-typography {
+            font-size: 14px;
+        }
+    }
+    
+}

@@ -14,6 +14,7 @@
     "@types/node": "16.18.30",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "^5.3.3",
     "@types/redux-actions": "2.6.2",
     "@types/redux-saga": "0.10.5",
@@ -23,6 +24,7 @@
     "axios": "1.4.0",
     "gh-pages": "^5.0.0",
     "install": "0.13.0",
+    "jest": "^29.5.0",
     "lodash": "4.17.21",
     "npm": "9.6.7",
     "react": "18.2.0",
@@ -42,7 +44,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "test": "jest"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
@@ -62,6 +64,12 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!axios)/",
+      "/node_modules/(?!redux-actions)/"
+    ]
+  },
   "devDependencies": {
     "@types/lodash": "^4.14.194",
     "@types/react-jsonschema-form": "^1.7.8",
@@ -70,6 +78,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "jest-mock": "^29.5.0",
     "node-sass": "^8.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2"

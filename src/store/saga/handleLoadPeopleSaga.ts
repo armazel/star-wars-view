@@ -15,7 +15,7 @@ import {
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
-import { HandleLoadSagaParams, LoadCardParams, PeopleData, PeopleItemResponse, PeopleResponse } from "../types";
+import { HandleLoadSagaParams, PeopleData, PeopleItemResponse, PeopleResponse } from "../types";
 import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
 import { requredPeopleFields } from "../../pages/People/PeopleDetails/requiredPeopleFields";
 import { cardTypes } from "../../const/cardType";

@@ -16,7 +16,7 @@ import {
 
 import { API_URL } from "../../const/apiConstants";
 import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
-import { HandleLoadSagaParams, LoadCardParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
+import { HandleLoadSagaParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
 import { requiredPlanetsFields } from "../../pages/Planets/PlanetDetails/requiredPlanetsFields";
 import { cardTypes } from "../../const/cardType";
 

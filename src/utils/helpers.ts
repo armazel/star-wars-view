@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 import { CardData, CardsData } from "../store/types";
 import LocalStorageService from "./localStorageHepler";
 
-interface CustomJSONSchema7 extends JSONSchema7 {
+interface CustomJSONSchema extends JSONSchema7 {
     name?: string;
 }
 
@@ -14,18 +14,18 @@ interface IndexedCardData {
 
 export const getItemImage = (item: string, number: string) => `https://starwars-visualguide.com/assets/img/${item}/${number}.jpg`;
 export const getIdFromUrl = (url: string) => url.split("/")[url.split("/").length - 2] || "1";
-export const getIdFromCardType = (url: string) => url.split("/")[url.split("/").length - 3] || "people";
+export const getCardTypeFromUrl = (url: string) => url.split("/")[url.split("/").length - 3] || "people";
 
 export const updateData = (data: CardsData) => data.map((item) => ({
     ...item,
     id: getIdFromUrl(item.url),
-    cardType: getIdFromCardType(item.url),
+    cardType: getCardTypeFromUrl(item.url),
 }));
 
 export const updateItemData = (data: CardData) => ({
     ...data,
     id: getIdFromUrl(data.url),
-    cardType: getIdFromCardType(data.url),
+    cardType: getCardTypeFromUrl(data.url),
 });
 
 export const mergeItemWithLocal = (data: CardData, entityKey: string) => {
@@ -82,7 +82,7 @@ export const updateCardDetailsData = (data: CardData, config: string[]) => {
 };
 
 export const updateSchema = (schema: JSONSchema7, requredleFields: string[]) => {
-    let properties = {} as CustomJSONSchema7;
+    let properties = {} as CustomJSONSchema;
 
     requredleFields.forEach((item: string) => {
         properties = {

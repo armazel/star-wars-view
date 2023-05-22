@@ -14,6 +14,7 @@ const PeoplePage: React.FC = () => {
     console.log("people", people);
 
     useEffect(() => {
+        
         if(isEmpty(people)) {
             dispatch(loadPeopleData({
                 page: 1,

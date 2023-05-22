@@ -32,12 +32,16 @@ export const mergeItemWithLocal = (data: CardData, entityKey: string) => {
     const localStorageService = new LocalStorageService();
     const localData = localStorageService.getItem<IndexedCardData>(entityKey) as IndexedCardData;
 
+    if(isEmpty(localData)) return data;
+
     return  isEmpty(localData[data.id]) ? data : localData[data.id];
 };
 
 export const mergeDataWithLocal = (data: CardData[], entityKey: string) => {
     const localStorageService = new LocalStorageService();
     const localData = localStorageService.getItem<IndexedCardData>(entityKey) as IndexedCardData;
+
+    if(isEmpty(localData)) return data;
 
     return data.map(item => {
         if (localData[item.id]) {

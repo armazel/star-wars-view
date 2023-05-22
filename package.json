@@ -1,5 +1,6 @@
 {
   "name": "star_wars_app",
+  "homepage": "http://armazel.github.io/star-wars-view",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -18,6 +18,7 @@ body {
   background-image: url('../public/layout_background.jpeg');
   background-size: cover;
   background-position: center center;
+  overflow-x: hidden;
 }
 
 #root {

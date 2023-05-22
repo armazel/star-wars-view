@@ -34,7 +34,7 @@
 }
 
 @media(max-width: 768px) {
-    .PeopleDetailsEdit {
+    .PlanetsDetailsEdit {
         & .form-control,
         & .form-control:hover {
             width: 300px !important;
@@ -43,10 +43,13 @@
 }
 
 @media(max-width: 425px) {
-    .PeopleDetailsEdit {
+    .PlanetsDetailsEdit {
         & .form-control,
         & .form-control:hover {
             width: 200px !important;
+        }
+        & .ant-typography {
+            font-size: 20px;
         }
     }
 }

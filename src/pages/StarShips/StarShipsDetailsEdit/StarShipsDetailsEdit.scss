@@ -34,7 +34,7 @@
 }
 
 @media(max-width: 768px) {
-    .PeopleDetailsEdit {
+    .StarShipsDetailsEdit {
         & .form-control,
         & .form-control:hover {
             width: 300px !important;
@@ -43,7 +43,7 @@
 }
 
 @media(max-width: 425px) {
-    .PeopleDetailsEdit {
+    .StarShipsDetailsEdit {
         & .form-control,
         & .form-control:hover {
             width: 200px !important;

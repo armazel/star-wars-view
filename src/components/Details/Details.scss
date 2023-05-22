@@ -33,8 +33,12 @@
 
 @media(max-width: 425px) {
     .DetailsTitle {
+        display: flex;
+        align-items: center;
         & .ant-typography {
-            font-size: 14px;
+            font-size: 12px;
+            max-width: 130px;
+            @include ellipsis;
         }
     }
     

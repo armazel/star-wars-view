@@ -8,9 +8,10 @@ import { Typography } from "antd";
 import validator from "@rjsf/validator-ajv8";
 
 import SchemaForm from "../../../components/SchemaForm/SchemaForm";
+import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 import { getPlanetSchema, getPlanetsItemById } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
-import { loadPlanetItemById, loadPlanetSchema, planetItemUpdate } from "../../../store/actions";
+import { loadPlanetItemById, loadPlanetSchema, planetDataUpdate } from "../../../store/actions";
 
 import LocalStorageService from "../../../utils/localStorageHepler";
 import { PlanetsData } from "../../../store/types";
@@ -41,24 +42,27 @@ const PlanetsDetailsEdit: React.FC = () => {
     const handleSubmit = (e: IChangeEvent) => {
         const localStorageService = new LocalStorageService();
         localStorageService.setItem<PlanetsData>(cardTypes.PLANETS, id as string, e.formData)
-        dispatch(planetItemUpdate());
+        dispatch(planetDataUpdate());
 
         navigate(`/${cardTypes.PLANETS}/${id}`);
     };
 
     return (
-        <div className={componentName}>
-            <Title>
-                {data?.name}
-            </Title>
-            <SchemaForm
-                schema={schema as JSONSchema7}
-                uiSchema={{}}
-                formData={data}
-                onSubmit={handleSubmit as (e: IChangeEvent<any, JSONSchema7, any>, event: FormEvent<any>) => void}
-                validator={validator}
-            />
-        </div>
+        <>
+            <BreadCrumbs />
+            <div className={componentName}>
+                <Title>
+                    {data?.name}
+                </Title>
+                <SchemaForm
+                    schema={schema as JSONSchema7}
+                    uiSchema={{}}
+                    formData={data}
+                    onSubmit={handleSubmit as (e: IChangeEvent<any, JSONSchema7, any>, event: FormEvent<any>) => void}
+                    validator={validator}
+                />
+            </div>
+        </>
     );
 };
 

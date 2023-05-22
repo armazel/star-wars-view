@@ -9,10 +9,6 @@ class LocalStorageService {
         const newItem = { ...existingData, [id]: value };
         localStorage.setItem(key, JSON.stringify(newItem));
     }
-
-    removeItem(key: string): void {
-        localStorage.removeItem(key);
-    }
 }
 
 export default LocalStorageService;

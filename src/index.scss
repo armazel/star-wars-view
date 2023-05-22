@@ -1,11 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/star-wars');
+@import "Global.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Star Wars', sans-serif;
-  color: #fcdf2a !important;
+  color: $main-color !important;
 }
 
 body {
@@ -30,9 +31,10 @@ body {
 
 .ant-input::placeholder,
 .ant-input,
-.ant-pagination-item {
+.ant-pagination-item,
+.ant-typography {
   font-family: 'Star Wars', sans-serif;
-  color: #fcdf2a !important;
+  color: $main-color !important;
 }
 
 .ant-layout-content,

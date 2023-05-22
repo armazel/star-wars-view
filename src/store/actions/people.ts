@@ -15,7 +15,7 @@ export const GET_PEOPLE_ITEM_BY_ID_FETCH_SUCCESS
     = "peopleItem/load/FETCH_SUCCESS";
 export const GET_PEOPLE_ITEM_BY_ID_FETCH_ERROR
     = "peopleItem/load/FETCH_ERROR";
-export const GET_PEOPLE_ITEM_BY_ID_UPDATE
+export const PEOPLE_UPDATE
     = "peopleItem/update";
 
 export const GET_PEOPLE_SCHEMA_FETCH_REQUEST
@@ -43,4 +43,4 @@ export const loadPeopleSchema = createAction(GET_PEOPLE_SCHEMA_FETCH_REQUEST);
 export const loadPeopleSchemaSuccess = createAction(GET_PEOPLE_SCHEMA_FETCH_SUCCESS);
 export const loadPeopleSchemaError = createAction(GET_PEOPLE_SCHEMA_FETCH_ERROR);
 
-export const peopleItemUpdate = createAction(GET_PEOPLE_ITEM_BY_ID_UPDATE);
+export const peopleDataUpdate = createAction(PEOPLE_UPDATE);

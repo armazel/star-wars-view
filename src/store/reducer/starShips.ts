@@ -1,4 +1,6 @@
 import { JSONSchema7 } from "json-schema";
+import { cardTypes } from "../../const/cardType";
+import { mergeItemWithLocal } from "../../utils/helpers";
 
 import { 
     GET_STAR_SHIPS_FETCH_REQUEST,
@@ -7,6 +9,7 @@ import {
     GET_STAR_SHIP_ITEM_BY_ID_FETCH_SUCCESS,
     GET_STAR_SHIP_ITEM_BY_ID_FETCH_REQUEST,
     GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS,
+    STAR_SHIPS_UPDATE,
 } from "../actions";
 import { Action, StarShipsData } from "../types";
 
@@ -48,6 +51,11 @@ export const starShipsReducer = (state: StateType = initialState, action: Action
             return {
                 ...state,
                 ...action.payload,
+            };
+        case STAR_SHIPS_UPDATE:
+            return {
+                ...state,
+                detailItem: mergeItemWithLocal(state.detailItem, cardTypes.STAR_SHIPS),
             };
         default:
         return state;

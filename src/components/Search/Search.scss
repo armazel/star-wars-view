@@ -1,13 +1,15 @@
+@import "../../Global.scss";
+
 .Search {
     max-width: 600px;
     & .ant-input {
         background: transparent;
-        border: 2px solid #fcdf2a;
+        border: 2px solid $main-color;
         border-radius: 0;
         padding: 12px;
     }
     & .ant-input-group-addon {
-        border: 2px solid yellow !important;
+        border: 2px solid $main-color !important;
         border-radius: 0;
         padding: 0 12px !important;
         & .ant-btn {
@@ -18,7 +20,7 @@
     & .ant-input:focus,
     & .ant-input:hover,
     & .ant-input:target {
-        border: 2px solid yellow !important;
+        border: 2px solid $main-color !important;
     }
 }
 

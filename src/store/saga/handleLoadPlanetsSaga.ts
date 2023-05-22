@@ -15,7 +15,7 @@ import {
 } from "../actions";
 
 import { API_URL } from "../../const/apiConstants";
-import { mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
+import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
 import { HandleLoadSagaParams, PlanetsData, PlanetsItemResponse, PlanetsResponse } from "../types";
 import { requiredPlanetsFields } from "../../pages/Planets/PlanetDetails/requiredPlanetsFields";
 import { cardTypes } from "../../const/cardType";
@@ -27,7 +27,7 @@ function* handleLoadPlanetsSaga({
         const response: PlanetsResponse = yield call(axios.get, API_URL.getPlanets(payload));
 
         yield put(loadPlanetsDataSuccess({
-            data: updateData(response.data.results),
+            data: mergeDataWithLocal(updateData(response.data.results), cardTypes.PLANETS),
             count: response.data.count,
             searchText: payload?.search,
         }));
@@ -42,7 +42,7 @@ function* handleLoadPlanetItemByIdSaga({ payload }: { id: string }): SagaIterato
         const response: PlanetsItemResponse = yield call(axios.get, API_URL.getPlanetItemById(payload.id));
 
         yield put(loadPlanetItemByIdSuccess({
-            detailItem: updateItemData(mergeItemWithLocal(response.data as PlanetsData, cardTypes.PLANETS)),
+            detailItem: mergeItemWithLocal(updateItemData(response.data as PlanetsData), cardTypes.PLANETS),
         }));
     } catch (error) {
         yield put(loadPlanetItemByIdError(error));

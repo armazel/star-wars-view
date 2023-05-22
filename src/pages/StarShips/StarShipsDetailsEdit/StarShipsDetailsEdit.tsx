@@ -7,9 +7,10 @@ import { IChangeEvent } from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
 
 import SchemaForm from "../../../components/SchemaForm/SchemaForm";
+import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 import { getStarShipSchema, getStarShipsItemById } from "../../../store/selectors";
 import { RootState } from "../../../store/store";
-import { loadStarShipItemById, loadStarShipSchema, starShipItemUpdate } from "../../../store/actions";
+import { loadStarShipItemById, loadStarShipSchema, starShipDataUpdate } from "../../../store/actions";
 import { Typography } from "antd";
 
 import LocalStorageService from "../../../utils/localStorageHepler";
@@ -41,24 +42,27 @@ const StarShipsDetailsEdit: React.FC = () => {
     const handleSubmit = (e: IChangeEvent) => {
         const localStorageService = new LocalStorageService();
         localStorageService.setItem<StarShipsData>(cardTypes.STAR_SHIPS, id as string, e.formData);
-        dispatch(starShipItemUpdate());
+        dispatch(starShipDataUpdate());
 
         navigate(`/${cardTypes.STAR_SHIPS}/${id}`);
     };
 
     return (
-        <div className={componentName}>
-            <Title>
-                {data?.name}
-            </Title>
-            <SchemaForm
-                schema={schema as JSONSchema7}
-                uiSchema={{}}
-                formData={data}
-                onSubmit={handleSubmit as (e: IChangeEvent<any, JSONSchema7, any>, event: FormEvent<any>) => void}
-                validator={validator}
-            />
-        </div>
+        <>
+            <BreadCrumbs />
+            <div className={componentName}>
+                <Title>
+                    {data?.name}
+                </Title>
+                <SchemaForm
+                    schema={schema as JSONSchema7}
+                    uiSchema={{}}
+                    formData={data}
+                    onSubmit={handleSubmit as (e: IChangeEvent<any, JSONSchema7, any>, event: FormEvent<any>) => void}
+                    validator={validator}
+                />
+            </div>
+        </>
     );
 };
 

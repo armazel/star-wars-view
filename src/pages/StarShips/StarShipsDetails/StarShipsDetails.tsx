@@ -5,6 +5,7 @@ import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 import Details from "../../../components/Details/Details";
 import EmptyPage from "../../../components/EmptyPage/EmptyPage";
+import { cardTypes } from "../../../const/cardType";
 import { entities } from "../../../const/entities";
 import { loadStarShipItemById, loadStarShipsData } from "../../../store/actions";
 import { getStarShipsItemById } from "../../../store/selectors";
@@ -36,6 +37,7 @@ const StarShipsDetails: React.FC = () => {
                     data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
                     entity={entities.STAR_SHIPS}
                     id={data.id as string}
+                    cardType={cardTypes.STAR_SHIPS}
                 />
             </>
         ) : (<EmptyPage />);

@@ -16,7 +16,7 @@ import {
 
 import { API_URL } from "../../const/apiConstants";
 import { HandleLoadSagaParams, LoadCardParams, PeopleData, PeopleItemResponse, PeopleResponse } from "../types";
-import { mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
+import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
 import { requredPeopleFields } from "../../pages/People/PeopleDetails/requiredPeopleFields";
 import { cardTypes } from "../../const/cardType";
 
@@ -26,7 +26,7 @@ function* handleLoadPeopleSaga({ payload }: HandleLoadSagaParams): SagaIterator 
     const response: PeopleResponse = yield call(axios.get, API_URL.getPeopleData(payload));
 
     yield put(loadPeopleDataSuccess({
-      data: updateData(response.data.results),
+      data: mergeDataWithLocal(updateData(response.data.results), cardTypes.PEOPLE),
       count: response.data.count,
       searchText: payload?.search,
     }));
@@ -41,7 +41,7 @@ function* handleLoadPeopleItemByIdSaga({ payload }: string): SagaIterator {
     const response: PeopleItemResponse = yield call(axios.get, API_URL.getPeopleItemById(payload.id));
 
     yield put(loadPeopleItemByIdSuccess({
-      detailItem: updateItemData(mergeItemWithLocal(response.data as PeopleData, cardTypes.PEOPLE)),
+      detailItem: mergeItemWithLocal(updateItemData(response.data as PeopleData), cardTypes.PEOPLE),
     }));
   } catch (error) {
     yield put(loadPeopleItemByIdError(error));

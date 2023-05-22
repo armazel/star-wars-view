@@ -22,7 +22,7 @@ export const GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS
     = "starShipSchema/load/FETCH_SUCCESS";
 export const GET_STAR_SHIP_SCHEMA_FETCH_ERROR
     = "starShipSchema/load/FETCH_ERROR";
-export const GET_STAR_SHIP_ITEM_BY_ID_UPDATE
+export const STAR_SHIPS_UPDATE
     = "starShip/update";
 
 export const loadStarShipsData = createAction(
@@ -43,4 +43,4 @@ export const loadStarShipSchema = createAction(GET_STAR_SHIP_SCHEMA_FETCH_REQUES
 export const loadStarShipSchemaSuccess = createAction(GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS);
 export const loadStarShipSchemaError = createAction(GET_STAR_SHIP_SCHEMA_FETCH_ERROR);
 
-export const starShipItemUpdate = createAction(GET_STAR_SHIP_ITEM_BY_ID_UPDATE);
+export const starShipDataUpdate = createAction(STAR_SHIPS_UPDATE);

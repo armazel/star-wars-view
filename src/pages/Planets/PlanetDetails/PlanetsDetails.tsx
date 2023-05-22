@@ -5,6 +5,7 @@ import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 import Details from "../../../components/Details/Details";
 import EmptyPage from "../../../components/EmptyPage/EmptyPage";
+import { cardTypes } from "../../../const/cardType";
 import { entities } from "../../../const/entities";
 import { loadPlanetItemById } from "../../../store/actions";
 import { getPlanetsItemById } from "../../../store/selectors";
@@ -37,6 +38,7 @@ const PlanetsDetails: React.FC = () => {
                     data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
                     entity={entities.PLANETS}
                     id={data.id as string}
+                    cardType={cardTypes.PLANETS}
                 />
             </>
         ) : (<EmptyPage />);

@@ -1,7 +1,23 @@
+@import "../../Global.scss";
+
 .Details {
     margin-top: 20px;
     & .ant-card {
         background: #2a2926;
         margin: 24px;
+        max-width: 1200px;
+    }
+}
+
+.DetailsTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & .ant-typography {
+        margin: 0;
+    }
+    & .ant-btn,
+    & .ant-btn:hover {
+        @include details-wrapper-submit;
     }
 }

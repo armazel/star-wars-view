@@ -22,7 +22,7 @@ export const GET_PLANET_SCHEMA_FETCH_SUCCESS
     = "planetSchema/load/FETCH_SUCCESS";
 export const GET_PLANET_SCHEMA_FETCH_ERROR
     = "planetSchema/load/FETCH_ERROR";
-export const GET_PLANET_ITEM_BY_ID_UPDATE
+export const PLANETS_UPDATE
     = "planet/update";
 
 export const loadPlanetsData = createAction(
@@ -43,4 +43,4 @@ export const loadPlanetSchema = createAction(GET_PLANET_SCHEMA_FETCH_REQUEST);
 export const loadPlanetSchemaSuccess = createAction(GET_PLANET_SCHEMA_FETCH_SUCCESS);
 export const loadPlanetSchemaError = createAction(GET_PLANET_SCHEMA_FETCH_ERROR);
 
-export const planetItemUpdate = createAction(GET_PLANET_ITEM_BY_ID_UPDATE);
+export const planetDataUpdate = createAction(PLANETS_UPDATE);

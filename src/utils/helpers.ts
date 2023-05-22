@@ -31,9 +31,20 @@ export const updateItemData = (data: CardData) => ({
 export const mergeItemWithLocal = (data: CardData, entityKey: string) => {
     const localStorageService = new LocalStorageService();
     const localData = localStorageService.getItem<IndexedCardData>(entityKey) as IndexedCardData;
-    const updateDataId: string = updateItemData(data).id;
 
-    return  isEmpty(localData[updateDataId]) ? data : localData[updateDataId];
+    return  isEmpty(localData[data.id]) ? data : localData[data.id];
+};
+
+export const mergeDataWithLocal = (data: CardData[], entityKey: string) => {
+    const localStorageService = new LocalStorageService();
+    const localData = localStorageService.getItem<IndexedCardData>(entityKey) as IndexedCardData;
+
+    return data.map(item => {
+        if (localData[item.id]) {
+            return localData[item.id];
+        }
+        return item;
+    });
 };
 
 export const addQuery = (queries: { [key: string]: string }) => {

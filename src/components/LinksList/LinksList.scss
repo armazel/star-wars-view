@@ -1,4 +1,4 @@
-@import "../../Mixins";
+@import "../../Global.scss";
 
 .LinksList {
     display: flex;
@@ -10,7 +10,7 @@
         cursor: pointer;
         display: flex;
         justify-content: center;
-        border-right: 1px solid #fcdf2a;
+        border-right: 1px solid $main-color;
     }
 
     & .link_item:last-child {

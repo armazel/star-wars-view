@@ -1,11 +1,11 @@
-@import "../../Mixins.scss";
+@import "../../Global.scss";
 
 .DetailsCard {
     & .ant-card-body {
         background: black;
     }
     & .ant-image-img {
-        border: 2px solid #fcdf2a;
+        border: 2px solid $main-color;
     }
 
     & .description {

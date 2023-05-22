@@ -5,6 +5,7 @@ import BreadCrumbs from "../../../components/BreadCrumbs/BreadCrumbs";
 
 import Details from "../../../components/Details/Details";
 import EmptyPage from "../../../components/EmptyPage/EmptyPage";
+import { cardTypes } from "../../../const/cardType";
 import { entities } from "../../../const/entities";
 import { loadPeopleItemById } from "../../../store/actions";
 import { getPeopleItemById } from "../../../store/selectors";
@@ -37,6 +38,7 @@ const PeopleDetails: React.FC = () => {
                     data={updateCardDetailsData(data as CardData, configRender.requiredFields)}
                     entity={entities.PEOPLE}
                     id={data.id as string}
+                    cardType={cardTypes.PEOPLE}
                 />
             </>
         ) : (<EmptyPage />);

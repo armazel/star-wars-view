@@ -1,3 +1,5 @@
+@import "../../Global.scss";
+
 .CardList {
     display: flex;
     flex-wrap: wrap;
@@ -11,7 +13,7 @@
         justify-content: flex-start;
     }
     & .ant-card {
-        border: 1px solid #fcdf2a !important;
+        border: 1px solid $main-color !important;
     }
 }
 

@@ -1,4 +1,6 @@
 import { JSONSchema7 } from "json-schema";
+import { cardTypes } from "../../const/cardType";
+import { mergeItemWithLocal } from "../../utils/helpers";
 
 import { 
     GET_PEOPLE_FETCH_REQUEST,
@@ -7,6 +9,7 @@ import {
     GET_PEOPLE_ITEM_BY_ID_FETCH_SUCCESS,
     GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST,
     GET_PEOPLE_SCHEMA_FETCH_SUCCESS,
+    PEOPLE_UPDATE,
 } from "../actions";
 import { PeopleData, Action } from "../types";
 
@@ -48,6 +51,11 @@ export const peopleReducer = (state: StateType = initialState, action: Action): 
             return {
                 ...state,
                 ...action.payload,
+            };
+        case PEOPLE_UPDATE:
+            return {
+                ...state,
+                detailItem: mergeItemWithLocal(state.detailItem, cardTypes.PEOPLE),
             };
         default:
         return state;

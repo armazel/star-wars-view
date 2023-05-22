@@ -1,3 +1,5 @@
+@import "Variables.scss";
+
 @mixin center-vertically {
     display: flex;
     align-items: center;
@@ -19,15 +21,15 @@
 }
 
 @mixin main-color-borders {
-    border: 1px solid #fcdf2a;
+    border: 1px solid $main-color;
 }
 
 @mixin main-color-borders-bottom {
-    border-bottom: 1px solid #fcdf2a;
+    border-bottom: 1px solid $main-color;
 }
 
 @mixin main-color-borders-top {
-    border-top: 1px solid #fcdf2a;
+    border-top: 1px solid $main-color;
 }
 
 @mixin details-wrapper {

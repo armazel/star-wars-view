@@ -40,10 +40,15 @@
     "roman-numerals": "^0.3.2",
     "ts-jest": "^29.1.0",
     "typescript": "4.9.5",
-    "web-vitals": "2.1.4"
+    "web-vitals": "2.1.4",
+    "eslint": "^8.40.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src/**/*.{ts,tsx}",
     "test": "react-scripts test"
@@ -75,11 +80,6 @@
   "devDependencies": {
     "@types/lodash": "^4.14.194",
     "@types/react-jsonschema-form": "^1.7.8",
-    "eslint": "^8.40.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "jest-mock": "^29.5.0",
     "node-sass": "^8.0.0",
     "sass": "^1.62.1",

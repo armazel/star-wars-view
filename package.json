@@ -5,14 +5,12 @@
   "dependencies": {
     "@redux-saga/types": "1.2.1",
     "@reduxjs/toolkit": "1.9.5",
-    "@rjsf/antd": "^5.7.2",
+    "@rjsf/antd": "^5.1.0",
     "@rjsf/core": "^5.7.2",
-    "@rjsf/utils": "^5.7.2",
     "@rjsf/validator-ajv8": "^5.7.2",
     "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.4.0",
+    "@testing-library/react": "12.1.0",
     "@testing-library/user-event": "13.5.0",
-    "@types/antd": "1.0.0",
     "@types/jest": "27.5.2",
     "@types/node": "16.18.30",
     "@types/react": "18.2.6",
@@ -20,8 +18,9 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/redux-actions": "2.6.2",
     "@types/redux-saga": "0.10.5",
+    "@types/roman-numerals": "^0.3.0",
     "ajv": "^8.12.0",
-    "antd": "5.5.0",
+    "antd": "5.4.2",
     "axios": "1.4.0",
     "install": "0.13.0",
     "lodash": "4.17.21",
@@ -36,8 +35,7 @@
     "redux-saga": "1.2.3",
     "roman-numerals": "^0.3.2",
     "typescript": "4.9.5",
-    "web-vitals": "2.1.4",
-    "@types/roman-numerals": "^0.3.0"
+    "web-vitals": "2.1.4"
   },
   "overrides": {
     "webpack": "5.82.1"

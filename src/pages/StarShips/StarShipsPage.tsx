@@ -22,7 +22,7 @@ const StarShipsPage: React.FC = () => {
             info={starShips}
             entity={entities.STAR_SHIPS}
             imgHeight={300}
-            width={"300"}
+            width={"300px"}
         />
     );
 };

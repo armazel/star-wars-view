@@ -22,6 +22,18 @@ import {
     GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST,
     GET_PEOPLE_ITEM_BY_ID_FETCH_SUCCESS,
     GET_PEOPLE_ITEM_BY_ID_FETCH_ERROR,
+
+    GET_PEOPLE_SCHEMA_FETCH_REQUEST,
+    GET_PLANET_SCHEMA_FETCH_REQUEST,
+    GET_STAR_SHIP_SCHEMA_FETCH_REQUEST,
+
+    GET_PEOPLE_SCHEMA_FETCH_SUCCESS,
+    GET_PLANET_SCHEMA_FETCH_SUCCESS,
+    GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS,
+
+    GET_PEOPLE_SCHEMA_FETCH_ERROR,
+    GET_PLANET_SCHEMA_FETCH_ERROR,
+    GET_STAR_SHIP_SCHEMA_FETCH_ERROR,
     
 } from "../actions";
 import { Action } from "../types";
@@ -44,6 +56,9 @@ export const loadingReducer = (state: StateType = initialState, action: Action):
         case GET_PLANETS_ITEM_BY_ID_FETCH_REQUEST:
         case GET_STAR_SHIP_ITEM_BY_ID_FETCH_REQUEST:
         case GET_PEOPLE_ITEM_BY_ID_FETCH_REQUEST:
+        case GET_PEOPLE_SCHEMA_FETCH_REQUEST:
+        case GET_PLANET_SCHEMA_FETCH_REQUEST:
+        case GET_STAR_SHIP_SCHEMA_FETCH_REQUEST:
             return {
                 ...state,
                 isLoading: true,
@@ -61,6 +76,12 @@ export const loadingReducer = (state: StateType = initialState, action: Action):
         case GET_PLANETS_ITEM_BY_ID_FETCH_ERROR:
         case GET_PEOPLE_ITEM_BY_ID_FETCH_ERROR:
         case GET_STAR_SHIP_ITEM_BY_ID_FETCH_ERROR:
+        case GET_PEOPLE_SCHEMA_FETCH_SUCCESS:
+        case GET_PLANET_SCHEMA_FETCH_SUCCESS:
+        case GET_STAR_SHIP_SCHEMA_FETCH_SUCCESS:
+        case GET_PEOPLE_SCHEMA_FETCH_ERROR:
+        case GET_PLANET_SCHEMA_FETCH_ERROR:
+        case GET_STAR_SHIP_SCHEMA_FETCH_ERROR:
             return {
                 ...state,
                 isLoading: false,

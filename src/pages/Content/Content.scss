@@ -1,6 +1,7 @@
+@import "../../Global.scss";
+
 .Content {
-    display: flex;
-    justify-content: center;
+    @include flex-center;
     flex-direction: column;
     margin: 0 50px;
 }

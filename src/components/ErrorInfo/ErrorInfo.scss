@@ -1,6 +1,6 @@
 @import "../../Global.scss";
 
-.EmptyPage {
+.ErrorInfo {
     @include flex-center;
     & .not-found {
         @include center-vertically;

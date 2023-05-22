@@ -7,6 +7,11 @@
     flex-direction: column;
 }
 
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+}
+
 @mixin start-horizontally {
     display: flex;
     align-items: start;
@@ -40,6 +45,7 @@
     border-radius: 5px;
     padding: 24px;
     margin: 24px;
+    max-width: 1200px;
 }
 
 @mixin details-wrapper-submit {

@@ -35,8 +35,7 @@
 
 @media(max-width: 768px) {
     .StarShipsDetailsEdit {
-        & .form-control,
-        & .form-control:hover {
+        & .form-control {
             width: 300px !important;
         }
     }
@@ -44,9 +43,11 @@
 
 @media(max-width: 425px) {
     .StarShipsDetailsEdit {
-        & .form-control,
-        & .form-control:hover {
+        & .form-control  {
             width: 200px !important;
+        }
+        & .ant-typography {
+            font-size: 20px;
         }
     }
 }

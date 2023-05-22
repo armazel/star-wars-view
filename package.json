@@ -41,9 +41,9 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "strat": "serve -s build -l 4000",
-    "launch": "react-scripts start",
     "build": "react-scripts build",
+    "start": "npm run build & serve -s build -l 4000",
+    "launch": "react-scripts start",
     "lint": "eslint src/**/*.{ts,tsx}",
     "test": "react-scripts test"
   },

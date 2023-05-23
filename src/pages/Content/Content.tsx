@@ -51,7 +51,6 @@ const Content: React.FC = () => {
                         <Routes>
                             <Route path={routesList.DEFAULT} element={<DefaultView />} />
                             <Route path={routesList.PEOPLE} element={<DefaultView />} />
-                            <Route path={routesList.ERROR} element={<ErrorInfo />} />
                             <Route path={routesList.STAR_SHIPS} element={
                                 <>
                                     <StarShipsControls />
@@ -68,6 +67,7 @@ const Content: React.FC = () => {
                                     </Col>
                                 </>
                             } />
+                            <Route path={routesList.ERROR} element={<ErrorInfo />} />
                         </Routes>
                     </Col>
                 </Row>

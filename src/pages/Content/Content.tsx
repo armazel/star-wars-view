@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { Col, Row, Layout } from "antd";
 
 import PeoplePage from "../People/PeoplePage";
@@ -19,6 +19,9 @@ import StarShipsDetailsEdit from "../StarShips/StarShipsDetailsEdit/StarShipsDet
 import ErrorInfo from "../../components/ErrorInfo/ErrorInfo";
 
 import "./Content.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { getsErrorPage } from "../../store/selectors";
+import { resetError } from "../../store/actions/common";
 
 const componentName = "Content";
 
@@ -31,6 +34,15 @@ const Content: React.FC = () => {
             </Row>
         </>
     );
+    const navigate = useNavigate();
+
+    const isError = useSelector(getsErrorPage);
+    const dispatch = useDispatch();
+    if (isError) {
+        navigate(routesList.ERROR)
+        dispatch(resetError())
+    }
+
     return (
         <Layout.Content>
             <Layout.Content className={componentName}>

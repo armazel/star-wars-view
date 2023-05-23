@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Typography } from "antd";
+import { Link } from "react-router-dom";
 
 import "./Details.scss";
 
@@ -16,7 +17,9 @@ const DetailsTitle: React.FC<
 }) => (
     <div className={componentName}>
         <Typography.Title>{name}</Typography.Title>
-        <Button href={path}>Edit</Button>
+        <Link to={path}>
+            <Button href={path}>Edit</Button>
+        </Link>
     </div>
 );
 

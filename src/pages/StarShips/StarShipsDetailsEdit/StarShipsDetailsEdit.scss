@@ -35,16 +35,13 @@
 @media(max-width: 768px) {
     .StarShipsDetailsEdit {
         & .form-control {
-            width: 300px !important;
+            width: 100% !important;
         }
     }
 }
 
 @media(max-width: 425px) {
     .StarShipsDetailsEdit {
-        & .form-control  {
-            width: 200px !important;
-        }
         & .ant-typography {
             font-size: 20px !important;
         }

@@ -16,6 +16,7 @@ import { routesList } from "../../const/routesList";
 import PeopleDetailsEdit from "../People/PeopleDetailsEdit/PeopleDetailsEdit";
 import PlanetsDetailsEdit from "../Planets/PlanetsDetailsEdit/PlanetsDetailsEdit";
 import StarShipsDetailsEdit from "../StarShips/StarShipsDetailsEdit/StarShipsDetailsEdit";
+import ErrorInfo from "../../components/ErrorInfo/ErrorInfo";
 
 import "./Content.scss";
 
@@ -38,6 +39,7 @@ const Content: React.FC = () => {
                         <Routes>
                             <Route path={routesList.DEFAULT} element={<DefaultView />} />
                             <Route path={routesList.PEOPLE} element={<DefaultView />} />
+                            <Route path={routesList.ERROR} element={<ErrorInfo />} />
                             <Route path={routesList.STAR_SHIPS} element={
                                 <>
                                     <StarShipsControls />
@@ -66,6 +68,8 @@ const Content: React.FC = () => {
                 <Route path={routesList.PEOPLE_DETAILS_EDIT} element={<PeopleDetailsEdit />} />
                 <Route path={routesList.PLANETS_DETAILS_EDIT} element={<PlanetsDetailsEdit />} />
                 <Route path={routesList.STAR_SHIPS_DETAILS_EDIT} element={<StarShipsDetailsEdit />} />
+
+                <Route path={routesList.ERROR} element={<ErrorInfo />} />
             </Routes>
         </Layout.Content>
     );

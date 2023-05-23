@@ -16,8 +16,8 @@
     & .ant-typography {
         margin: 0;
     }
-    & .ant-btn,
-    & .ant-btn:hover {
+    & .ant-btn {
+        margin: 0 !important;
         @include details-wrapper-submit;
     }
 }

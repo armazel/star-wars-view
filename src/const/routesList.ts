@@ -1,5 +1,6 @@
 export const routesList: {[key: string]: string} = {
     DEFAULT: "/",
+    ERROR: "/error",
     PEOPLE: "/people",
     PLANETS: "/planets",
     STAR_SHIPS: "/starships",

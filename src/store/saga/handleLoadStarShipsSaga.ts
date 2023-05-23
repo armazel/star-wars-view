@@ -16,7 +16,7 @@ import {
 import { API_URL } from "../../const/apiConstants";
 import { SagaIterator } from "redux-saga";
 import { mergeDataWithLocal, mergeItemWithLocal, updateData, updateItemData, updateSchema } from "../../utils/helpers";
-import { HandleLoadSagaParams, LoadCardParams, StarShipItemResponse, StarShipsData } from "../types";
+import { HandleLoadSagaParams, StarShipItemResponse, StarShipsData } from "../types";
 import { requiredStarShipsFields } from "../../pages/StarShips/StarShipsDetails/requiredStarShipsFields";
 import { cardTypes } from "../../const/cardType";
 

@@ -20,7 +20,7 @@ const Search: React.FC<SearchParams> = ({
     onLoad,
     searchData = "",
 }) => {
-    const debounceTimeout = 1500;
+    const debounceTimeout = 800;
 
     const loadData = (e: ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;

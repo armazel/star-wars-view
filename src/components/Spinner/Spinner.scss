@@ -1,9 +1,12 @@
+@import "../../Global";
+
 .Spinner {
     & .content-hide {
         display: none;
     }
     & .content-show {
         display: flex;
+        @include center-vertically;
     }
 }
 
@@ -14,6 +17,7 @@
     background: black;
     flex: 1;
     opacity: 0.4; 
+    min-height: 75vh;
     & .ant-spin-dot {
         width: 550px;
         height: 400px;
@@ -22,9 +26,10 @@
 
 @media (max-width: 768px) {
     .Spinner {
+        min-height: auto !important;
         & .ant-spin-dot {
-            width: 100%;
-            height: 200px;
+            width: 100% !important;
+            height: 200px !important;
         }
     }
 }

@@ -17,11 +17,12 @@ import PeopleDetailsEdit from "../People/PeopleDetailsEdit/PeopleDetailsEdit";
 import PlanetsDetailsEdit from "../Planets/PlanetsDetailsEdit/PlanetsDetailsEdit";
 import StarShipsDetailsEdit from "../StarShips/StarShipsDetailsEdit/StarShipsDetailsEdit";
 import ErrorInfo from "../../components/ErrorInfo/ErrorInfo";
-
-import "./Content.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getsErrorPage } from "../../store/selectors";
 import { resetError } from "../../store/actions/common";
+import Spinner from "../../components/Spinner/Spinner";
+
+import "./Content.scss";
 
 const componentName = "Content";
 
@@ -29,9 +30,11 @@ const Content: React.FC = () => {
     const DefaultView = () => (
         <>
             <PeopleControls />
-            <Row>
-                <PeoplePage />
-            </Row>
+            <Spinner>
+                <Row>
+                        <PeoplePage />
+                    </Row>
+            </Spinner>
         </>
     );
     const navigate = useNavigate();
@@ -54,17 +57,21 @@ const Content: React.FC = () => {
                             <Route path={routesList.STAR_SHIPS} element={
                                 <>
                                     <StarShipsControls />
-                                    <Col span={24}>
-                                        <StarShipsPage />
-                                    </Col>
+                                    <Spinner>
+                                        <Col span={24}>
+                                            <StarShipsPage />
+                                        </Col>
+                                    </Spinner>
                                 </>
                             } />
                             <Route path={routesList.PLANETS} element={
                                 <>
                                     <PlanetsControls />
-                                    <Col span={24}>
-                                        <PlanetsPage />
-                                    </Col>
+                                    <Spinner>
+                                        <Col span={24}>
+                                            <PlanetsPage />
+                                        </Col>
+                                    </Spinner>
                                 </>
                             } />
                             <Route path={routesList.ERROR} element={<ErrorInfo />} />

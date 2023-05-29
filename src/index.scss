@@ -35,6 +35,10 @@ input:focus {
   background-color: transparent !important;
 }
 
+.ant-image-img {
+  object-fit: cover;
+}
+
 .ant-input::placeholder,
 .ant-input,
 .ant-pagination-item,

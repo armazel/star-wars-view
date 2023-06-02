@@ -27,7 +27,7 @@ const StarShipsControls = () => {
                 cardType={cardTypes.STAR_SHIPS}
                 searchData={searchData}
             />
-            <Pagination onLoad={onLoad} total={total} />
+            <Pagination onLoad={onLoad} total={total} searchData={searchData}/>
         </div>
     );
 };

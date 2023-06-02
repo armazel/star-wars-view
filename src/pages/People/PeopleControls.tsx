@@ -25,7 +25,7 @@ const PeopleControls = () => {
                 cardType={cardTypes.PEOPLE}
                 searchData={searchData}
             />
-            <Pagination onLoad={onLoad} total={total} />
+            <Pagination onLoad={onLoad} total={total} searchData={searchData}/>
         </div>
     );
 };

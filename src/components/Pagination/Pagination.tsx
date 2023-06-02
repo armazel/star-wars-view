@@ -11,21 +11,24 @@ import "./Pagination.scss";
 type PaginationParams = {
     onLoad: (param: LoadCardParams) => AnyAction;
     total: number, 
+    searchData: string,
 };
 
 const componentName: string = "Pagination";
 
-const Pagination: React.FC<any> = ({
+const Pagination: React.FC<PaginationParams> = ({
     onLoad,
     total,
-}: PaginationParams) => {
+    searchData,
+}) => {
 
     const [ currentPage, setCurrentPage ] = useState<number>(1);
 
     const onChange = (page: number) => {
         setCurrentPage(page);
         onLoad({
-            page
+            page,
+            search: searchData,
         });
     };
 

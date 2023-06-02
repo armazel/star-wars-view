@@ -27,7 +27,7 @@ const PlanetsControls = () => {
                 cardType={cardTypes.PLANETS}
                 searchData={searchData}
             />
-            <Pagination onLoad={onLoad} total={total} />
+            <Pagination onLoad={onLoad} total={total} searchData={searchData} />
         </div>
     );
 };

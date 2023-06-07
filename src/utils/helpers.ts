@@ -61,7 +61,7 @@ export const addQuery = (queries: { [key: string]: string }) => {
     queriesList.map((item: string, id: number) => 
         queriesLine += id === 0 
             ? `?${item}=${queries[item]}`
-            : `&${item}=${queries[item]}`
+            : `&${item}=${queries[item] || ""}`
         );
     
     return queriesLine;
